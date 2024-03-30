@@ -10,6 +10,11 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/typeit@@{TYPEIT_VERSION}/dist/index.umd.js"></script>
+    <script type="module" src="https://unpkg.com/rough-notation?module"></script>
+
+    {{-- Animations --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
      <!-- Font Awesome -->
     <link
@@ -56,7 +61,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-brand">
-        <img src="{{asset('images/Inncapel Logo.jpg')}}" alt="logo" style="width: 100px;">
+        <img src="{{asset('images/Inncapel_Logo-removebg-preview.png')}}" alt="logo" style="width: 100px;">
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -125,7 +130,7 @@
                 <img src="{{asset('images/Website Creator (1).gif')}}" class="d-block w-100" alt="Wild Landscape" style="height: 60vh;object-fit:contain;"/>
               </div>
               <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3" style="color:#4CAF50;">Digital Automation & Marketing</h1><br>
+                <h1 class="display-5 fw-bold lh-1 mb-3" style="color:#4CAF50;" id="heroheader"></h1><br>
                 <p class="lead">The responsive left-aligned hero with image is a popular design choice for creating visually impactful and attention-grabbing website headers. In this design. Digital Automation & Marketing</h1>
                     <p class="lead">The responsive left-aligned hero with image is a popular design choice for creating visually impactful and attention-grabbing website headers. In this design.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -146,7 +151,7 @@
             <div class="col-12 col-lg-6 col-xl-7">
             <div class="row justify-content-xl-center">
                 <div class="col-12 col-xl-11">
-                <h1 class="mb-3 text-center" style="color:#4CAF50;border:2px solid  #4CAF50;background:white;border-radius:10px;">Who Are We?</h1>
+                <h1 class="mb-3 text-center animate__animated animate__bounce animate__repeat-2 anotate" style="color:#4CAF50;border:2px solid  #4CAF50;background:white;border-radius:10px;">Who Are We?</h1>
                 <p class="lead text-white">We help people to build incredible brands and superior products. Our perspective is to furnish outstanding captivating services. We are a fast-growing company, but we have never lost sight of our core values. We believe in collaboration, innovation, and customer satisfaction. We are always looking for new ways to improve our products and services.</p><br>
                 <div class="row gy-4 gy-md-0 gx-xxl-5X p-2 mb-4">
                     <div class="col-12 col-md-6 mb-4">
@@ -970,8 +975,36 @@
 <!-- Footer -->
 
  </div>
+<!-- Load library from the CDN -->
+<script type="module" src="https://unpkg.com/rough-notation?module"></script>
+ <!-- Load Rough Notation library from unpkg as a module -->
+<script type="module">
+    import { annotate } from 'https://unpkg.com/rough-notation?module';
+
+    // Wait for the document to finish loading
+    document.addEventListener('DOMContentLoaded', function() {
+      // Select the element you want to annotate
+      const e = document.querySelector('.anotate');
+
+      // Create an annotation object using Rough Notation
+      const annotation = annotate(e, { type: 'highlight' });
+
+      // Show the annotation
+      annotation.show();
+      annotation.color = 'green';
+    });
+  </script>
 
 
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<!-- Setup and start animation! -->
+<script>
+  var typed = new Typed('#heroheader', {
+    strings: ['Digital Automation',' Digital Marketing','Digital Automation and Marketing Agency'],
+    typeSpeed: 100,
+  });
+</script>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
