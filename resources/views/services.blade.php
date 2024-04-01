@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Inncapel</title>
+    <title>Our Services | Inncapel</title>
+    <link rel="shortcut icon" href="{{asset('images/Inncapel Logo.jpg')}}" type="image/x-icon">
       <!-- Include Compiled CSS -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/typeit@@{TYPEIT_VERSION}/dist/index.umd.js"></script>
     <script type="module" src="https://unpkg.com/rough-notation?module"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     {{-- Animations --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -45,9 +47,8 @@
 
 
 </head>
-<body style="background:
-">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+<body style="background:" class="">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -66,13 +67,13 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="About Cliidi?" data-bs-toggle="modal" data-bs-target="#staticBackdrop">About Us</a>
+              <a class="nav-link" href="{{route('homepage')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="About Cliidi?" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Our Services</a>
+              <a class="nav-link" href="{{route('aboutpage')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="About Cliidi?" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Projects Done</a>
+                <a class="nav-link" href="{{route('projectspage')}}">Projects Done</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="About Cliidi?" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Testimonials</a>
@@ -119,134 +120,31 @@
           </ul>
       </div>
     </div>
-</nav><hr class="line"><br><br><br><br>
-
-
+</nav><hr class="line"><br><br><br>
+<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed; font-size:22px;z-index:1000;background-color:">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
+<div style="position: fixed;width:100%;z-index:1000">
+    <img src="{{asset('images/landscape-3773706_1280.jpg')}}" alt="" style="width:100%;height:8vh;object-fit:cover;z-index:1000;position:relative;">
+    <div class="overlay-text">Our Services</div>
+</div><br><br><br>
   <main class="container" >
-    <section>
-        <div class="col-lg">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div class="col-12 col-sm-8 col-lg-6">
-                <img src="{{asset('images/Website Creator (1).gif')}}" class="d-block w-100" alt="Wild Landscape" style="height: 60vh;object-fit:contain;"/>
-              </div>
-              <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3" style="color:#4CAF50;" id="heroheader"></h1><br>
-                <p class="lead">The responsive left-aligned hero with image is a popular design choice for creating visually impactful and attention-grabbing website headers. In this design. Digital Automation & Marketing</h1>
-                    <p class="lead">The responsive left-aligned hero with image is a popular design choice for creating visually impactful and attention-grabbing website headers. In this design.</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-success btn-lg px-4 me-md-2">Our Work</button>
-                  <button type="button" class="btn btn-outline-success btn-lg px-4" style="color: #FF6F61">About Us</button>
-                </div>
-              </div>
-            </div>
-        </div>
-    </section>
-    <!-- About 1 - Bootstrap Brain Component -->
-    <section class="py-3 py-md-5" style="background:#0077CC">
-        <div class="container">
-        <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-            <div class="col-12 col-lg-6 col-xl-5">
-            <img class="img-fluid rounded" loading="lazy" src="{{asset('images/About us page.gif')}}" alt="About Us" >
-            </div>
-            <div class="col-12 col-lg-6 col-xl-7">
-            <div class="row justify-content-xl-center">
-                <div class="col-12 col-xl-11">
-                <h1 class="mb-3 text-center animate__animated animate__bounce animate__repeat-2 anotate" style="color:#4CAF50;border:2px solid  #4CAF50;background:white;border-radius:10px;">Who Are We?</h1>
-                <p class="lead text-white">We help people to build incredible brands and superior products. Our perspective is to furnish outstanding captivating services. We are a fast-growing company, but we have never lost sight of our core values. We believe in collaboration, innovation, and customer satisfaction. We are always looking for new ways to improve our products and services.</p><br>
-                <div class="row gy-4 gy-md-0 gx-xxl-5X p-2 mb-4">
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="d-flex">
-                            <div class="me-4">
-                                <img src="{{asset('images/project-management.png')}}" alt="Captivate Icon">
-                            </div>
-                            <div>
-                            <h2 class="h4 mb-3 text-white">INNOVATION</h2>
-                            <p class="text-secondary mb-0">We are crafting a digital method that subsists life across all mediums.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="d-flex">
-                            <div class="me-4 ">
-                            <img src="{{asset('images/grab.png')}}" alt="Captivate Icon">
-                            </div>
-                            <div>
-                            <h2 class="h4 mb-3 text-white">CAPTIVATION</h2>
-                            <p class="text-secondary mb-0">We believe in innovation by merging primary with elaborate ideas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="d-flex">
-                            <div class="me-4 ">
-                            <img src="{{asset('images/rise.png')}}" alt="Elevate Icon">
-                            </div>
-                            <div>
-                            <h2 class="h4 mb-3 text-white">ELEVATION</h2>
-                            <p class="text-secondary mb-0">We believe in innovation by merging primary with elaborate ideas.</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="container d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btn-lg px-4 me-md-2">Our Affordable Services</button>
-                     </div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-    </section>
-    	<!-- Why Us Section -->
-	<section class="why-us" style="background: rgba(128, 128, 128, 0.113)">
-		<div class="container">
-	        <div class="row">
-				<div class="col-md-8 offset-md-2">
-					<h1 class="mt-5 text-center text-success">Why Choose Us</h1>
-					<p class="mb-5 text-center lead">Why choose us section design HTML is created by using Bootstrap and custom HTML CSS. This our services section cards are more beautiful with pure CSS hover effects.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6 col-lg-4">
-					<div class="box">
-						<span>01</span>
-						<h4>Why Lorem Ipsum</h4>
-						<p class="lead text-white">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					<div class="box">
-						<span>02</span>
-						<h4>Why Lorem Ipsum</h4>
-						<p class="lead text-white">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					<div class="box">
-						<span>03</span>
-						<h4>Why Lorem Ipsum</h4>
-						<p class="lead text-white">There are many variations of passages of available, but the majority have suffered alteration in some form</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Why Us Section -->
     <section class="wrapper">
         <div class="container-fostrap">
             <div class="row">
 				<div class="col-md-8 offset-md-2">
-					<h1 class="mt-5 text-center text-success">What we do !</h1>
-					<p class="mb-5 text-center lead">Why choose us section design HTML is created by using Bootstrap and custom HTML CSS. This our services section cards are more beautiful with pure CSS hover effects.</p>
+					<h1 class="mt-5 text-center text-success">What we do !</h1><br><br>
+
 				</div>
+                <div class="call-toaction">
+                    <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">View Client Testimonials</a><br><br>
+                </div><br><br><br><br>
 			</div>
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
+                        <div class="col-xs-12 col-md-4 col-sm-4">
+                            <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
+                                <img src="{{asset('images/webdev.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
@@ -276,10 +174,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
+                        <div class="col-xs-12 col-md-4 col-sm-4">
+                            <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                <img src="{{asset('images/digital-marketing.jpg')}}" alt="Digital Marketing image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
@@ -309,10 +207,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
+                        <div class="col-xs-12 col-md-4 col-sm-4">
+                            <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                <img src="{{asset('images/graphics.jpg')}}" alt="Graphics Design image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
@@ -348,10 +246,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
+                        <div class="col-xs-12 col-md-4 col-sm-4">
+                            <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                <img src="{{asset('images/hosting.jpg')}}" alt="Web hosting image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
@@ -374,10 +272,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
+                        <div class="col-xs-12 col-md-43 col-sm-4">
+                            <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                <img src="{{asset('images/education.jpg')}}" alt="Education image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
@@ -430,171 +328,120 @@
             </div>
         </div>
     </section>
-    <section class="wrapper" style="background: #0077CC">
-        <div class="container-fostrap">
-            <div class="row">
+    	<!-- Why Us Section -->
+	<section class="why-us" style="background: rgba(128, 128, 128, 0.113)">
+		<div class="container">
+	        <div class="row">
 				<div class="col-md-8 offset-md-2">
-                    <h1 class="mb-3 text-center" style="color:#4CAF50;border:2px solid  #4CAF50;background:white;border-radius:10px;">Our Work</h1>
-					<p class="mb-5 text-center lead text-white">Why choose us section design HTML is created by using Bootstrap and custom HTML CSS. This our services section cards are more beautiful with pure CSS hover effects.</p>
+					<h1 class="mt-5 text-center text-success">Why Choose Us</h1><br><br>
 				</div>
 			</div>
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" class="img-rounded" />
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                        Web Development
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Navigate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" class="img-rounded" />
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Graphics Design
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Navigate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" class="img-rounded" />
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Digital Marketing
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Navigate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" class="img-rounded" />
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Web Hosting
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Navigate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" class="img-rounded" />
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Education
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Navigate Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+			<div class="row">
+				<div class="col-sm-6 col-lg-4" >
+					<div class="box" data-aos="zoom-out-down">
+						<span>01</span>
+						<h4>Digi Fusion</h4>
+						<p class="lead text-white">
+                            We are fusionists of the digital realm, seamlessly blending technology and innovation to craft digital solutions that transcend expectations. From websites that breathe life into client brand to apps that redefine user experiences – we do not just follow trends; we set them.
+                        </p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="box" data-aos="zoom-out-down">
+						<span>02</span>
+						<h4> Innovation Unleashed</h4>
+						<p class="lead text-white">
+                          At Inncapel, innovation is not a choice; it's in our DNA. We thrive on pushing boundaries, challenging norms, and dreaming up the extraordinary. We let us be client guides on a journey where the ordinary has no place.
+                        </p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="box" data-aos="zoom-out-down">
+						<span>03</span>
+						<h4> Strategic Brilliance</h4>
+						<p class="lead text-white">
+                             Client success is our mission. Our team of digital strategists, tech enthusiasts, and creative minds collaborate to weave strategies that not only elevate client online presence but also drive tangible results. We do not play the game; we strategize to win.
+                        </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Why Us Section -->
     <section style="background: rgba(128, 128, 128, 0.113)">
         <div class="container py-5">
           <div class="row d-flex justify-content-center">
             <div class="col-md-10 col-xl-8 text-center">
-              <h1 class="text-success">What our clients say?</h1>
-              <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-                numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-                quisquam eum porro a pariatur veniam.
-              </p>
+              <h1 class="text-success">What our clients say?</h1><br><br>
+              <div class="call-toaction">
+                <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Get your qoute today !</a><br><br>
+            </div><br><br>
             </div>
+
           </div>
 
           <div class="row text-center">
-            <div class="col-md-4 mb-0">
-              <div class="card">
+            <div class="col-md-6 col-md-4  mb-0">
+              <div class="card" data-aos="flip-left">
                 <div class="card-body py-4 mt-2">
                   <div class="d-flex justify-content-center mb-4">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
+                    <img src="{{asset('images/profile-user (1).png')}}"
                       class="rounded-circle shadow-1-strong" width="100" height="100" />
                   </div>
-                  <h4 class="font-weight-bold text-success">Alexa Horwitz</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">Front-end Developer in NY</h6>
+                  <h4 class="font-weight-bold text-success">Bright Mutyandaedza</h4>
+                  <h6 class="font-weight-bold my-3 text-primary">CEO, Savana Solutions</h6>
                   <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2"></i>Cras sit amet nibh libero, in gravida
-                    nulla metus scelerisque ante sollicitudin commodo cras purus odio,
-                    vestibulum in tempus viverra turpis. <i class="fas fa-quote-right pe-2"></i>
+                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
+                    Working with Inncapel was a game-changer for our business! Their web development team not only created a stunning website but also boosted our online presence, leading to increased traffic and conversions. Highly recommend their services!
+                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-0">
-              <div class="card">
+            <div class="col-md-6 col-md-4 mb-0">
+              <div class="card" data-aos="flip-left">
                 <div class="card-body py-4 mt-2">
                   <div class="d-flex justify-content-center mb-4">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
+                    <img src="{{asset('images/profile-user (1).png')}}"
                       class="rounded-circle shadow-1-strong" width="100" height="100" />
                   </div>
-                  <h4 class="font-weight-bold text-success">Alexa Horwitz</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">Front-end Developer in NY</h6>
+                  <h4 class="font-weight-bold text-success">Kumbirai Mudadada</h4>
+                  <h6 class="font-weight-bold my-3 text-primary">General Manager, One Touch</h6>
                   <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2"></i>Cras sit amet nibh libero, in gravida
-                    nulla metus scelerisque ante sollicitudin commodo cras purus odio,
-                    vestibulum in tempus viverra turpis. <i class="fas fa-quote-right pe-2"></i>
+                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
+                    Inncapel turned our vision into reality with their exceptional web development skills. They delivered a user-friendly and visually appealing website that exceeded our expectations. If you want top-notch web development, look no further!
+                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-0">
-              <div class="card">
+            <div class="col-md-6 col-md-4 mb-0">
+              <div class="card" data-aos="flip-left">
                 <div class="card-body py-4 mt-2">
                   <div class="d-flex justify-content-center mb-4">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+                    <img src="{{asset('images/profile-user (1).png')}}"
+                    class="rounded-circle shadow-1-strong" width="100" height="100" />
                   </div>
-                  <h4 class="font-weight-bold text-success">Alexa Horwitz</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">Front-end Developer in NY</h6>
+                  <h4 class="font-weight-bold text-success">Regis Goredema</h4>
+                  <h6 class="font-weight-bold my-3 text-primary">CEO, Regis Kitchens</h6>
                   <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2"></i>Cras sit amet nibh libero, in gravida
-                    nulla metus scelerisque ante sollicitudin commodo cras purus odio,
-                    vestibulum in tempus viverra turpis. <i class="fas fa-quote-right pe-2"></i>
+                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
+                    Thanks to Inncapel, our website now stands out in a competitive market. Their expertise in web development brought our brand to life online, attracting more customers and boosting our credibility. Trustworthy, professional, and highly recommended!
+                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
     </section>
     <!-- FAQ 1 - Bootstrap Brain Component -->
 <section class=" py-3 py-md-5">
     <div class="container">
       <div class="row gy-5 gy-lg-0 align-items-lg-center">
-        <div class="col-12 col-lg-6">
-          <img class="img-fluid rounded" loading="lazy" src="{{asset('images/FAQs.gif')}}" alt="How can we help you?">
+        <div class="col-12 col-md-12 col-lg-6">
+          <img class="img-fluid rounded col-md-12" loading="lazy" src="{{asset('images/FAQs.gif')}}" alt="How can we help you?">
         </div>
         <div class="col-12 col-lg-6">
           <div class="row justify-content-xl-end">
@@ -604,118 +451,69 @@
               <div class="accordion accordion-flush" id="accordionExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      How Do I Change My Billing Information?
+                    <button class="accordion-button lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    1. What services does Inncapel offer?
                     </button>
                   </h2>
                   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <p>To change your billing information, please follow these steps:</p>
-                      <ul>
-                        <li>Go to our website and sign in to your account.</li>
-                        <li>Click on your profile picture in the top right corner of the page and select "Account Settings."</li>
-                        <li>Under the "Billing Information" section, click on "Edit."</li>
-                        <li>Make your changes and click on "Save."</li>
-                      </ul>
+                    <div class="accordion-body lead">
+                      <p>Inncapel offers a range of services including web development, digital marketing, graphic design, education, web hosting, and automation solutions.</p>
+
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      How Does Payment System Work?
+                  <h2 class="accordion-header lead" id="headingTwo">
+                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    2. What sets Inncapel apart from other web development agencies?
                     </button>
                   </h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      A payment system is a way to transfer money from one person or organization to another. It is a complex process that involves many different parties, including banks, credit card companies, and merchants.
+                    <div class="accordion-body lead">
+                        Inncapel stands out for its innovative approach, personalized solutions, and commitment to delivering exceptional results that align with our clients' goals.
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      How Do I Cancel My Account?
+                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    3. Does Inncapel provide ongoing support and maintenance for websites?
                     </button>
                   </h2>
                   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <p>To cancel your account, please follow these steps:</p>
-                      <ul>
-                        <li>Go to our website and sign in to your account.</li>
-                        <li>Click on your profile picture in the top right corner of the page and select "Account Settings."</li>
-                        <li>Scroll to the bottom of the page and click on "Cancel Account."</li>
-                        <li>Enter your password and click on "Cancel Account."</li>
-                      </ul>
+                    <div class="accordion-body lead">
+                      <p>Absolutely! Inncapel offers ongoing support and maintenance services to ensure your website runs smoothly, stays secure, and remains up-to-date with the latest technologies.</p>
+
                     </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      How Do I Cancel My Account?
+                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    4. How can I contact Inncapel for inquiries or support?
                     </button>
                   </h2>
                   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <p>To cancel your account, please follow these steps:</p>
-                      <ul>
-                        <li>Go to our website and sign in to your account.</li>
-                        <li>Click on your profile picture in the top right corner of the page and select "Account Settings."</li>
-                        <li>Scroll to the bottom of the page and click on "Cancel Account."</li>
-                        <li>Enter your password and click on "Cancel Account."</li>
-                      </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      How Do I Cancel My Account?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <p>To cancel your account, please follow these steps:</p>
-                      <ul>
-                        <li>Go to our website and sign in to your account.</li>
-                        <li>Click on your profile picture in the top right corner of the page and select "Account Settings."</li>
-                        <li>Scroll to the bottom of the page and click on "Cancel Account."</li>
-                        <li>Enter your password and click on "Cancel Account."</li>
-                      </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      How Do I Cancel My Account?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <p>To cancel your account, please follow these steps:</p>
-                      <ul>
-                        <li>Go to our website and sign in to your account.</li>
-                        <li>Click on your profile picture in the top right corner of the page and select "Account Settings."</li>
-                        <li>Scroll to the bottom of the page and click on "Cancel Account."</li>
-                        <li>Enter your password and click on "Cancel Account."</li>
-                      </ul>
+                    <div class="accordion-body lead">
+                      <p>You can reach us through our contact page on our website or email us at [info@inncapel.com | +263778186399]. We're also available on social media platforms for quick communication.</p>
+
                     </div>
                 </div>
                 </div>
               </div>
-            </div>
+            </div><br><br>
           </div>
         </div>
       </div>
     </div>
   </section>
   <!-- Contact 3 - Bootstrap Brain Component -->
-<section class="bg-primary py-3 py-md-5">
+<section class=" py-3 py-md-5" style="background: #0077CC">
     <div class="container">
       <div class="row gy-3 gy-md-4 gy-lg-0 align-items-md-center">
         <div class="col-12 col-lg-6">
           <div class="row justify-content-xl-center">
             <div class="col-12 col-xl-11">
-                <h1 class="mb-3 text-center" style="color:#4CAF50;border:2px solid  #4CAF50;background:white;border-radius:10px;">Get in touch</h1>
+             <h1 class="text-center" style="color: #FF6F61;" id="line">Get in touch</h1>
               <p class="lead text-white">We're always on the lookout to work with new clients. If you're interested in working with us, please get in touch in one of the following ways.</p><br>
               <div class="d-flex mb-5">
                 <div class="me-4" style="color:#FF6F61">
@@ -785,11 +583,11 @@
             <form action="#!">
               <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                 <div class="col-12">
-                  <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                  <label for="fullname" class="form-label text-success">Full Name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
                 </div>
                 <div class="col-12 col-md-6">
-                  <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                  <label for="email" class="form-label text-success">Email <span class="text-danger">*</span></label>
                   <div class="input-group">
                     <span class="input-group-text">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
@@ -800,7 +598,7 @@
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
-                  <label for="phone" class="form-label">Phone Number</label>
+                  <label for="phone" class="form-label text-success">Phone Number</label>
                   <div class="input-group">
                     <span class="input-group-text">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
@@ -811,11 +609,11 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
+                  <label for="subject" class="form-label text-success">Subject <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="subject" name="subject" value="" required>
                 </div>
                 <div class="col-12">
-                  <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                  <label for="message" class="form-label text-success">Message <span class="text-danger">*</span></label>
                   <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                 </div>
                 <div class="col-12">
@@ -854,13 +652,13 @@
    <i class="fab fa-facebook-f" style="color: #FF6F61"></i>
  </a>
  <a href="" class="text-white me-4">
+   <i class="fab fa-youtube" style="color: #FF6F61"></i>
+ </a>
+ <a href="" class="text-white me-4">
+    <i class="fa-brands fa-tiktok" style="color: #FF6F61"></i>
+ </a>
+ <a href="" class="text-white me-4">
    <i class="fab fa-twitter" style="color: #FF6F61"></i>
- </a>
- <a href="" class="text-white me-4">
-   <i class="fab fa-google" style="color: #FF6F61"></i>
- </a>
- <a href="" class="text-white me-4">
-   <i class="fab fa-instagram" style="color: #FF6F61"></i>
  </a>
  <a href="" class="text-white me-4">
    <i class="fab fa-linkedin" style="color: #FF6F61"></i>
@@ -881,15 +679,13 @@
    <!-- Grid column -->
    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
      <!-- Content -->
-     <h6 class="text-uppercase fw-bold">Inncapel</h6>
+     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Inncapel</h6>
      <hr
          class="mb-4 mt-0 d-inline-block mx-auto"
-         style="width: 60px; background-color: #7c4dff; height: 2px"
+         style="width: 60px; background-color: #FF6F61; height: 2px"
          />
-     <p>
-       Here you can use rows and columns to organize your footer
-       content. Lorem ipsum dolor sit amet, consectetur adipisicing
-       elit.
+     <p class="lead">
+        Embarking on a digital journey like never before with Inncapel, client passport to a world where innovation meets impact, and technology dances with creativity.
      </p>
    </div>
    <!-- Grid column -->
@@ -897,22 +693,25 @@
    <!-- Grid column -->
    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
      <!-- Links -->
-     <h6 class="text-uppercase fw-bold">Products</h6>
+     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Products</h6>
      <hr
          class="mb-4 mt-0 d-inline-block mx-auto"
-         style="width: 60px; background-color: #7c4dff; height: 2px"
+         style="width: 60px; background-color: #FF6F61; height: 2px"
          />
-     <p>
-       <a href="#!" class="text-dark">MDBootstrap</a>
+     <p class="nav-item">
+       <a href="#!" class="nav-link" style="font-size: 16px;">LinkQuickly</a>
      </p>
      <p>
-       <a href="#!" class="text-dark">MDWordPress</a>
+     <p class="nav-item">
+       <a href="#!" class="nav-link" style="font-size: 16px;">FilesSyncro</a>
      </p>
      <p>
-       <a href="#!" class="text-dark">BrandFlow</a>
+     <p class="nav-item">
+       <a href="#!" class="nav-link" style="font-size: 16px;">Fiextrac</a>
      </p>
      <p>
-       <a href="#!" class="text-dark">Bootstrap Angular</a>
+     <p class="nav-item">
+       <a href="#!" class="nav-link" style="font-size: 16px;">Cliidi</a>
      </p>
    </div>
    <!-- Grid column -->
@@ -920,38 +719,41 @@
    <!-- Grid column -->
    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
      <!-- Links -->
-     <h6 class="text-uppercase fw-bold">Useful links</h6>
+     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Useful links</h6>
      <hr
          class="mb-4 mt-0 d-inline-block mx-auto"
-         style="width: 60px; background-color: #7c4dff; height: 2px"
+         style="width: 60px; background-color:#FF6F61; height: 2px"
          />
-     <p>
-       <a href="#!" class="text-dark">Your Account</a>
-     </p>
-     <p>
-       <a href="#!" class="text-dark">Become an Affiliate</a>
-     </p>
-     <p>
-       <a href="#!" class="text-dark">Shipping Rates</a>
-     </p>
-     <p>
-       <a href="#!" class="text-dark">Help</a>
-     </p>
+         <p class="nav-item">
+            <a href="#!" class="nav-link" style="font-size: 16px;">Our Services</a>
+          </p>
+         <p class="nav-item">
+            <a href="#!" class="nav-link" style="font-size: 16px;">Our Projects</a>
+          </p>
+         <p class="nav-item">
+            <a href="#!" class="nav-link" style="font-size: 16px;">Client Testimonials</a>
+          </p>
+         <p class="nav-item">
+            <a href="#!" class="nav-link" style="font-size: 16px;">Our Courses</a>
+          </p>
+         <p class="nav-item">
+            <a href="#!" class="nav-link" style="font-size: 16px;">Our Blog</a>
+          </p>
    </div>
    <!-- Grid column -->
 
    <!-- Grid column -->
    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
      <!-- Links -->
-     <h6 class="text-uppercase fw-bold">Contact</h6>
+     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Contact</h6>
      <hr
          class="mb-4 mt-0 d-inline-block mx-auto"
-         style="width: 60px; background-color: #7c4dff; height: 2px"
+         style="width: 60px; background-color: #FF6F61; height: 2px"
          />
-     <p><i class="fas fa-home mr-3" style="color: #FF6F61"></i> 3156 Old Highfiled, Harare, Zimbabwe</p>
-     <p><i class="fas fa-envelope mr-3" style="color: #FF6F61"></i> info@inncapel.com</p>
-     <p><i class="fas fa-phone mr-3"  style="color: #FF6F61"></i> +263778186399</p>
-     <p><i class="fas fa-print mr-3"  style="color: #FF6F61"></i> +263780322839</p>
+     <p class="text-success"><i class="fas fa-home mr-3" style="color: #FF6F61"></i> 3156 Old Highfiled, Harare, Zimbabwe</p>
+     <p class="text-success"><i class="fas fa-envelope mr-3" style="color: #FF6F61"></i> info@inncapel.com</p>
+     <p class="text-success"><i class="fas fa-phone mr-3"  style="color: #FF6F61"></i> +263778186399</p>
+     <p class="text-success"><i class="fas fa-print mr-3"  style="color: #FF6F61"></i> +263780322839</p>
    </div>
    <!-- Grid column -->
  </div>
@@ -965,7 +767,7 @@
   class="text-center p-3 text-white"
   style="background-color:#0077CC"
   >
-© 2024 Copyright:
+©<span id="currentYear"></span> Copyright:
 <a class="text-white" href="https://inncapel.com"
   >Inncapel.com</a
  >
@@ -973,39 +775,41 @@
 <!-- Copyright -->
 </footer>
 <!-- Footer -->
+<button
+type="button"
+class="btn btn btn-floating"
+id="btn-back-to-top" style="background: #FF6F61"
+>
+<i class="fas fa-arrow-up 2x" style="color:white;ffont-size:30px;"></i>
+</button>
 
  </div>
+
 <!-- Load library from the CDN -->
-<script type="module" src="https://unpkg.com/rough-notation?module"></script>
- <!-- Load Rough Notation library from unpkg as a module -->
+
 <script type="module">
-    import { annotate } from 'https://unpkg.com/rough-notation?module';
+    // Rough Annotation
+    import { annotate, annotationGroup } from 'https://unpkg.com/rough-notation?module';
 
-    // Wait for the document to finish loading
-    document.addEventListener('DOMContentLoaded', function() {
-      // Select the element you want to annotate
-      const e = document.querySelector('.anotate');
+// Wait for the document to finish loading
+document.addEventListener('DOMContentLoaded', function() {
+    const ano1 = annotate(document.querySelector('.ano1'), { type: 'underline' });
+    const ano2 = annotate(document.querySelector('.ano2'), { type: 'underline' });
+    // const ano3 = annotate(document.querySelector('.ano3'), { type: 'circle' });
 
-      // Create an annotation object using Rough Notation
-      const annotation = annotate(e, { type: 'highlight' });
+    const ag = annotationGroup([ano1, ano2]);
+    ag.show();
+    ano1.color = '#FF6F61';
+    ano2.color = '#FF6F61';
+});
 
-      // Show the annotation
-      annotation.show();
-      annotation.color = 'green';
-    });
-  </script>
-
-
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-<!-- Setup and start animation! -->
-<script>
-  var typed = new Typed('#heroheader', {
-    strings: ['Digital Automation',' Digital Marketing','Digital Automation and Marketing Agency'],
-    typeSpeed: 100,
-  });
 </script>
 
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
@@ -1015,5 +819,6 @@
 type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 ></script>
+<script src="{{asset('js/dashboard.js')}}"></script>
 </body>
 </html>

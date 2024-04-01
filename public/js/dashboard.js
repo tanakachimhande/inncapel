@@ -6,41 +6,49 @@
 ;
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
+// Backdrop Function
 
-    const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-    const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId),
-    bodypd = document.getElementById(bodyId),
-    headerpd = document.getElementById(headerId)
+let mybutton = document.getElementById("btn-back-to-top");
 
-    // Validate that all variables exist
-    if(toggle && nav && bodypd && headerpd){
-    toggle.addEventListener('click', ()=>{
-    // show navbar
-    nav.classList.toggle('show')
-    // change icon
-    toggle.classList.toggle('bx-x')
-    // add padding to body
-    bodypd.classList.toggle('body-pd')
-    // add padding to header
-    headerpd.classList.toggle('body-pd')
-    })
-    }
-    }
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
 
-    showNavbar('header-toggle','nav-bar','body-pd','header')
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 20 ||
+    document.documentElement.scrollTop > 20
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
 
-    /*===== LINK ACTIVE =====*/
-    const linkColor = document.querySelectorAll('.nav_link')
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
-    function colorLink(){
-    if(linkColor){
-    linkColor.forEach(l=> l.classList.remove('active'))
-    this.classList.add('active')
-    }
-    }
-    linkColor.forEach(l=> l.addEventListener('click', colorLink))
+ // Get the current year
+ const currentYear = new Date().getFullYear();
 
-     // Your code to run since DOM is loaded and ready
-    });
+ // Update the year in the HTML
+ document.getElementById('currentYear').textContent = currentYear;
+
+
+//  Tpying animations
+
+// var typed = new Typed('#heroheader', {
+//     strings: ['Digital Automation',' Digital Marketing','Digital Automation and Marketing Agency'],
+//     typeSpeed: 100,
+//     loop: true,
+//     loopCount: 2,
+// });
+
+
+ 
+
