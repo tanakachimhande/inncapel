@@ -40,15 +40,20 @@ function backToTop() {
  document.getElementById('currentYear').textContent = currentYear;
 
 
-//  Tpying animations
+const error = document.querySelector('#error');
 
-// var typed = new Typed('#heroheader', {
-//     strings: ['Digital Automation',' Digital Marketing','Digital Automation and Marketing Agency'],
-//     typeSpeed: 100,
-//     loop: true,
-//     loopCount: 2,
-// });
+function  removeErrorMessage () {
+
+    setTimeout(() => {
+
+        error.style.display = 'none'
+
+    }, 3000);
+
+}
+
+removeErrorMessage();
 
 
- 
+
 

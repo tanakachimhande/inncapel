@@ -45,4 +45,19 @@ $("#show-sidebar").click(function() {
 
 
 
+// Handling Category Id
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get references to the select element and the hidden input field
+    var categorySelect = document.querySelector('select[name="category_id"]');
+    var categoryNameInput = document.querySelector('input[name="service_category"]');
+    // Add an event listener to the select element
+    categorySelect.addEventListener("change", function() {
+        // Set the value of the hidden input field to the selected category's name
+        categoryNameInput.value = categorySelect.options[categorySelect.selectedIndex].text;
+    });
+});
+
+
 

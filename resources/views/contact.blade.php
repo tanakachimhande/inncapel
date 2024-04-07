@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Our Projects | Inncapel</title>
+    <title>Contact Us | Inncapel</title>
     <link rel="shortcut icon" href="{{asset('images/Inncapel Logo.jpg')}}" type="image/x-icon">
       <!-- Include Compiled CSS -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
@@ -48,7 +48,7 @@
 
 </head>
 <body style="background:" class="">
-  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top"  id="navbarr">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="navbarr">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -71,291 +71,16 @@
                 <a class="nav-link" href="{{$item->url}}">{{$item->title}}</a>
             </li>
             @endforeach
-            <li class="nav-item">
-                <a href="{{route('contactpage')}}" type="button" class="btn btn-success btn-lg px-4 me-md-2">Contact Us</a>
-            </li>
           </ul>
       </div>
     </div>
 </nav><hr class="line"><br><br>
-<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Pioneering <span class="ano1" id="slogan">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
+<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
 <div style="position: fixed;width:100%;z-index:1000" id="page-tag">
     <img src="{{asset('images/landscape-3773706_1280.jpg')}}" alt="" style="width:100%;height:8vh;object-fit:cover;z-index:1000;position:relative;">
-    <div class="overlay-text">Our Projects</div>
+    <div class="overlay-text">Contact Us</div>
 </div><br><br><br>
   <main class="container" >
-    <section class="wrapper anotate" style="background: #0077CC">
-        <div class="container-fostrap">
-            <div class="row">
-				<div class="col-md-8 offset-md-2">
-                    <h1 class="mb-3 text-center" style="color: #FF6F61;">Our Work</h1><br>
-
-				</div>
-                <div class="call-toaction">
-                    <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Get  Our Affordable Services</a><br><br>
-                </div><br><br><br><br>
-			</div>
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/webdev.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                        Web Development
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='{{route('projects-done-page')}}' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/graphics.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Graphics Design
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/digital-marketing.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Digital Marketing
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/hosting.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Web Hosting
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/education.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Education
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    	<!-- Why Us Section -->
-	<section class="why-us" style="background: rgba(128, 128, 128, 0.113)">
-		<div class="container">
-	        <div class="row">
-				<div class="col-md-8 offset-md-2">
-					<h1 class="mt-5 text-center text-success">Why Choose Us</h1><br><br>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6 col-lg-4" >
-					<div class="box" data-aos="zoom-out-down">
-						<span>01</span>
-						<h4>Digi Fusion</h4>
-						<p class="lead text-white">
-                            We are fusionists of the digital realm, seamlessly blending technology and innovation to craft digital solutions that transcend expectations. From websites that breathe life into client brand to apps that redefine user experiences – we do not just follow trends; we set them.
-                        </p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					<div class="box" data-aos="zoom-out-down">
-						<span>02</span>
-						<h4> Innovation Unleashed</h4>
-						<p class="lead text-white">
-                          At Inncapel, innovation is not a choice; it's in our DNA. We thrive on pushing boundaries, challenging norms, and dreaming up the extraordinary. We let us be client guides on a journey where the ordinary has no place.
-                        </p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					<div class="box" data-aos="zoom-out-down">
-						<span>03</span>
-						<h4> Strategic Brilliance</h4>
-						<p class="lead text-white">
-                             Client success is our mission. Our team of digital strategists, tech enthusiasts, and creative minds collaborate to weave strategies that not only elevate client online presence but also drive tangible results. We do not play the game; we strategize to win.
-                        </p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Why Us Section -->
-    <section style="background: rgba(128, 128, 128, 0.113)">
-        <div class="container py-5">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-10 col-xl-8 text-center">
-              <h1 class="text-success">What our clients say?</h1><br><br>
-              <div class="call-toaction">
-                <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Get your qoute today !</a><br><br>
-            </div><br><br>
-            </div>
-
-          </div>
-
-          <div class="row text-center">
-            <div class="col-md-6 col-md-4  mb-0">
-              <div class="card" data-aos="flip-left">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="{{asset('images/profile-user (1).png')}}"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h4 class="font-weight-bold text-success">Bright Mutyandaedza</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">CEO, Savana Solutions</h6>
-                  <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
-                    Working with Inncapel was a game-changer for our business! Their web development team not only created a stunning website but also boosted our online presence, leading to increased traffic and conversions. Highly recommend their services!
-                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-md-4 mb-0">
-              <div class="card" data-aos="flip-left">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="{{asset('images/profile-user (1).png')}}"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h4 class="font-weight-bold text-success">Kumbirai Mudadada</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">General Manager, One Touch</h6>
-                  <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
-                    Inncapel turned our vision into reality with their exceptional web development skills. They delivered a user-friendly and visually appealing website that exceeded our expectations. If you want top-notch web development, look no further!
-                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-md-4 mb-0">
-              <div class="card" data-aos="flip-left">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="{{asset('images/profile-user (1).png')}}"
-                    class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h4 class="font-weight-bold text-success">Regis Goredema</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">CEO, Regis Kitchens</h6>
-                  <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
-                    Thanks to Inncapel, our website now stands out in a competitive market. Their expertise in web development brought our brand to life online, attracting more customers and boosting our credibility. Trustworthy, professional, and highly recommended!
-                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    </section>
-    <!-- FAQ 1 - Bootstrap Brain Component -->
-<section class=" py-3 py-md-5">
-    <div class="container">
-      <div class="row gy-5 gy-lg-0 align-items-lg-center">
-        <div class="col-12 col-md-12 col-lg-6">
-          <img class="img-fluid rounded col-md-12" loading="lazy" src="{{asset('images/FAQs.gif')}}" alt="How can we help you?">
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="row justify-content-xl-end">
-            <div class="col-12 col-xl-11">
-                <h1 class="mb-3 text-center" style="color:#4CAF50">How can we help?</h1>
-              <p class="lead">We hope you have found an answer to your question. If you need any help, please search your query on our Support Center or contact us via email.</p>
-              <div class="accordion accordion-flush" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    1. What services does Inncapel offer?
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                      <p>Inncapel offers a range of services including web development, digital marketing, graphic design, education, web hosting, and automation solutions.</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header lead" id="headingTwo">
-                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    2. What sets Inncapel apart from other web development agencies?
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                        Inncapel stands out for its innovative approach, personalized solutions, and commitment to delivering exceptional results that align with our clients' goals.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    3. Does Inncapel provide ongoing support and maintenance for websites?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                      <p>Absolutely! Inncapel offers ongoing support and maintenance services to ensure your website runs smoothly, stays secure, and remains up-to-date with the latest technologies.</p>
-
-                    </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    4. How can I contact Inncapel for inquiries or support?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                      <p>You can reach us through our contact page on our website or email us at [info@inncapel.com | +263778186399]. We're also available on social media platforms for quick communication.</p>
-
-                    </div>
-                </div>
-                </div>
-              </div>
-            </div><br><br>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- Contact 3 - Bootstrap Brain Component -->
 <section class=" py-3 py-md-5" style="background: #0077CC">
     <div class="container">

@@ -36,49 +36,55 @@
             <span class="text-white fw-bold" style="font-size: 22px">Navigation</span>
           </li>
           <li class="">
-            <a href="" >
+            <a href="{{route('navbar-section')}}" >
               <i class="fa fa-bars text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Navbar Section</span>
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('home-hero-section')}}">
               <i class="fa fa-home text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Hero Section</span>
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('about-content')}}">
               <i class="fa fa-info-circle text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">About Section</span>
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('why-us')}}">
+              <i class="fa fa-info-circle text-white" style="background-color:#2ecc71"></i>
+              <span class="text-white" style="font-size: 18px">Why Us</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="{{route('service-category-content')}}">
               <i class="fa fa-wrench text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Services Section</span>
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('projects-content')}}">
               <i class="fa fa-tasks text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Projects Section</span>
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('testimonials-content')}}">
               <i class="fa fa-quote-right text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Testimonials Section</span>
             </a>
           </li>
           <li class="">
-            <a href="#" data-toggle="modal" data-target="#exampleModal">
+            <a href="{{route('faq-content')}}">
               <i class="fa fa-question text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">FAQ Section</span>
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('contact-content')}}">
               <i class="fa fa-phone text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Contact Section</span>
             </a>
@@ -146,8 +152,6 @@
             </div>
         </div>
     </div>
-
-
 
   </main>
   <!-- page-content" -->

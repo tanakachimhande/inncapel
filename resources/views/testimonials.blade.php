@@ -48,7 +48,7 @@
 
 </head>
 <body style="background:" class="">
-  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="navbarr">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -62,67 +62,24 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-brand">
-        <img src="{{asset('images/Inncapel_Logo-removebg-preview.png')}}" alt="logo" style="width: 100px;">
+        <img src="{{asset('images/Inncapel_Logo-removebg-preview.png')}}" alt="logo" id="logo-image">
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            @foreach ($navbarItems as $item)
             <li class="nav-item">
-              <a class="nav-link" href="{{route('homepage')}}">Home</a>
+                <a class="nav-link" href="{{$item->url}}">{{$item->title}}</a>
             </li>
+            @endforeach
             <li class="nav-item">
-              <a class="nav-link" href="{{route('aboutpage')}}">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('servicespage')}}">Our Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('projectspage')}}">Projects Done</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('faqpage')}}" >FAQ</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Courses
-                </a>
-                <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item text-success" href="#">Computer  Literacy</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Web Development</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Digital Marketing</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Graphics Design</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Personal Development</a></li>
-                </ul>
-              </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Our Products
-                </a>
-                <ol class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item text-success" href="#">LinkQuickly</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Cliidi</a></li>
-                  <li><a class="dropdown-item text-success" href="#">FilesSyncro</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Fiextrac</a></li>
-                </ol>
-              </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-                <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Contact Us</a>
+                <a href="{{route('contactpage')}}" type="button" class="btn btn-success btn-lg px-4 me-md-2">Contact Us</a>
             </li>
           </ul>
       </div>
     </div>
-</nav><hr class="line"><br><br><br>
-<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed; font-size:22px;z-index:1000;background-color:">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
-<div style="position: fixed;width:100%;z-index:1000">
+</nav><hr class="line"><br><br>
+<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
+<div style="position: fixed;width:100%;z-index:1000" id="page-tag">
     <img src="{{asset('images/landscape-3773706_1280.jpg')}}" alt="" style="width:100%;height:8vh;object-fit:cover;z-index:1000;position:relative;">
     <div class="overlay-text">Our Projects</div>
 </div><br><br><br>

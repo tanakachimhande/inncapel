@@ -48,7 +48,7 @@
 
 </head>
 <body style="background:" class="">
-  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="navbarr">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -62,67 +62,27 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-brand">
-        <img src="{{asset('images/Inncapel_Logo-removebg-preview.png')}}" alt="logo" style="width: 100px;">
+        <img id="logo-image" src="{{asset('images/Inncapel_Logo-removebg-preview.png')}}" alt="logo">
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            @foreach ($navbarItems as $item)
             <li class="nav-item">
-              <a class="nav-link" href="{{route('aboutpage')}}">About Us</a>
+                <a class="nav-link" href="{{$item->url}}">{{$item->title}}</a>
             </li>
+            @endforeach
             <li class="nav-item">
-            <a class="nav-link" href="{{route('servicespage')}}">Our Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('projectspage')}}">Projects Done</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('testimonialspage')}}" >Testimonials</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('faqpage')}}" >FAQ</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Courses
-                </a>
-                <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item text-success" href="#">Computer  Literacy</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Web Development</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Digital Marketing</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Graphics Design</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Personal Development</a></li>
-                </ul>
-              </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Our Products
-                </a>
-                <ol class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item text-success" href="#">LinkQuickly</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Cliidi</a></li>
-                  <li><a class="dropdown-item text-success" href="#">FilesSyncro</a></li>
-                  <li><a class="dropdown-item text-success" href="#">Fiextrac</a></li>
-                </ol>
-              </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-                <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Contact Us</a>
+                <a href="{{route('contactpage')}}" type="button" class="btn btn-success btn-lg px-4 me-md-2">Contact Us</a>
             </li>
           </ul>
       </div>
     </div>
-</nav><hr class="line"><br><br><br>
-<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed; font-size:22px;z-index:1000;background-color:">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
-
+</nav><hr class="line"><br><br>
+<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span>
+@if ($error = Session::get('error'))
+<br><span class="text-danger bg-white p-2" id="error">{{$error}}</span>
+@endif
+</div><br><br>
   <main class="container" >
     <section class="container">
         <div class="col-lg">
@@ -131,14 +91,18 @@
                 <img src="{{asset('images/Website Creator (1).gif')}}" class="d-block w-100 col-md-12" alt="Wild Landscape" style="height: 60vh;object-fit:contain;" id="gif"/>
               </div>
               <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3" style="color:#4CAF50;" id="heroheader">Digital Automation and Marketing Services</h1><br>
-                <p class="lead">
-                    Welcome to Inncapel, where we turn digital chaos into digital charisma! Dive into a world of <span class="ano3">SEO sorcery </span> <span class="ano4">, Web wizardly </span> <span class="ano5">,  Design Delights </span><span class="ano6">, Educational escapades </span><span class="ano7">,   Hosting heaven </span><span class="ano8">, Automation awesomeness </span>. Get ready to level up your digital game with a sprinkle of fun and a dash of professionalism. Let's make your online presence shine brighter than a unicorn's mane!.
-                </p><br>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Explore Our Work</a>
-                  <a href="#" type="button" class="btn btn-outline-success btn-lg px-4" style="color: #FF6F61">Let's Talk Now !</a>
-                </div>
+                 @if($heroContent)
+                 <h1 class="display-5 fw-bold lh-1 mb-3" style="color:#4CAF50;" id="heroheader">{{$heroContent->title}}</h1><br>
+                 <p class="lead">
+                     {{$heroContent->description}}
+                 </p><br>
+                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                   <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Explore Our Work</a>
+                   <a href="#" type="button" class="btn btn-outline-success btn-lg px-4" style="color: #FF6F61">Let's Talk Now !</a>
+                 </div>
+                 @else
+                 <span class="red">Loading...Content. Please bear with us !</span><br><br>
+                 @endif
               </div>
             </div>
         </div>
@@ -154,12 +118,11 @@
             <div class="row justify-content-xl-center">
                 <div class="col-12 col-xl-11">
                 <h1 class="mb-3 text-center animate__animated animate__bounce animate__repeat-2 anotate" style="color: #FF6F61;">Who we are?</h1>
-                <p class="lead text-white">
-                    Embarking on a digital journey like never before with Incapel, client passport to a world where innovation meets impact, and technology dances with creativity.
-                </p><br>
-                <p class="lead text-white">
-                    At Inncapel, we're not just digital automation & marketing agency; we're architects of digital brilliance, maestros of innovation, and client partners in the quest for online excellence. We are the intersection where pixels meet passion, and every click tells a story.
-                </p><br>
+                @if ($aboutContent)
+                <p class="lead text-white">{{$aboutContent->description}}</p><br>
+                @else
+                    <p class="lead text-white">Loading... content please bear with us</p>
+                @endif
                 <div class="row gy-4 gy-md-0 gx-xxl-5X p-2 mb-4">
                     <div class="col-12 col-md-6 mb-4">
                         <div class="d-flex">
@@ -213,33 +176,22 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6 col-lg-4" >
-					<div class="box" data-aos="zoom-out-down">
-						<span>01</span>
-						<h4>Digi Fusion</h4>
-						<p class="lead text-white">
-                            We are fusionists of the digital realm, seamlessly blending technology and innovation to craft digital solutions that transcend expectations. From websites that breathe life into client brand to apps that redefine user experiences – we do not just follow trends; we set them.
-                        </p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					<div class="box" data-aos="zoom-out-down">
-						<span>02</span>
-						<h4> Innovation Unleashed</h4>
-						<p class="lead text-white">
-                          At Inncapel, innovation is not a choice; it's in our DNA. We thrive on pushing boundaries, challenging norms, and dreaming up the extraordinary. We let us be client guides on a journey where the ordinary has no place.
-                        </p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					<div class="box" data-aos="zoom-out-down">
-						<span>03</span>
-						<h4> Strategic Brilliance</h4>
-						<p class="lead text-white">
-                             Client success is our mission. Our team of digital strategists, tech enthusiasts, and creative minds collaborate to weave strategies that not only elevate client online presence but also drive tangible results. We do not play the game; we strategize to win.
-                        </p>
-					</div>
-				</div>
+                @if ($countWhyus == 0)
+                <p class="lead text-primary">Loading... content please bear with us</p>
+                @else
+                     @foreach ($whyusContent as $contnet )
+                        <div class="col-sm-6 col-lg-4" >
+                            <div class="box" data-aos="zoom-out-down">
+                                <span>{{ $loop->first ? '01' : sprintf('%02d', $loop->index + 1) }}</span>
+                                <h4>{{$contnet->title}}</h4>
+                                <p class="lead text-white">
+                                     {{$contnet->description}}
+                                </p>
+                            </div>
+                        </div>
+                     @endforeach
+                @endif
+
 			</div>
 		</div>
 	</section>
@@ -258,188 +210,34 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
+                        @if ($countServiceCategory === 0)
+                         <span>No services added as yet !</span>
+                        @else
+                        @foreach ($categoriesWithServices  as  $content )
                         <div class="col-xs-12 col-md-4 col-sm-4">
                             <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                <img src="{{asset('images/webdev.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
+                                <img src="{{$content->service_image_path}}" alt="Web dev image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
-                                         Web Development
+                                         {{$content->services_title}}
                                     </h4>
                                     <ol class="list-group list-group-numbered">
+                                        @foreach ($content->services as $service)
                                         <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Website Design</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Website Development</div>
-
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Website Management</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">{{ $service->service_name }}</div>
+                                            </div>
+                                            <span class="badge bg-success rounded-pill">100%</span>
+                                          </li>
+                                        @endforeach
                                     </ol>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="{{asset('images/digital-marketing.jpg')}}" alt="Digital Marketing image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Digital Marketing
-                                    </h4>
-                                    <ol class="list-group list-group-numbered">
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Search Engine Optimization</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Sicial Media Managment</div>
-
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Video Creation</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="{{asset('images/graphics.jpg')}}" alt="Graphics Design image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Graphics Design
-                                    </h4>
-                                    <ol class="list-group list-group-numbered">
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Logos</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Digital Flyers</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Digital Posters</div>
-
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Company Profiles</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="{{asset('images/hosting.jpg')}}" alt="Web hosting image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Web Hosting
-                                    </h4>
-                                    <ol class="list-group list-group-numbered">
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Website Hosting</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Domin Name Registration</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                <img src="{{asset('images/education.jpg')}}" alt="Education image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Education
-                                    </h4>
-                                    <ol class="list-group list-group-numbered">
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Computer Literacy Course</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Web Design Course</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Web Development Course</div>
-
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Digital Marketing Course</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Graphics Desing Course</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                          <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Personal Development</div>
-                                          </div>
-                                          <span class="badge bg-success rounded-pill">100%</span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -459,81 +257,28 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-12 col-md-4 col-sm-4">
+                        @if ($countServiceCategory === 0)
+                        <span class="text-white">No Project as yet</span>
+                        @else
+                         @foreach ($serviceCategoryContent as $content)
+                         <div class="col-xs-12 col-md-4 col-sm-4">
                             <div class="card" data-aos="flip-left">
                                 <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/webdev.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
+                                    <img src="{{$content->service_image_path}}" alt="Web dev image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
-                                        Web Development
+                                        {{$content->services_title}}
                                     </h4>
                                 </div>
                                 <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
+                                    <a href="{{route('projects-done-page',['id'=>$content->id])}}" type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/graphics.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Graphics Design
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/digital-marketing.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Digital Marketing
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/hosting.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Web Hosting
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-sm-4">
-                            <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset('images/education.jpg')}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
-                                <div class="card-content">
-                                    <h4 class="card-title text-center text-success">
-                                         Education
-                                    </h4>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href='' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click & Explore More</a>
-                                </div>
-                            </div>
-                        </div>
+                         @endforeach
+
+                        @endif
                     </div>
                 </div>
             </div>
@@ -552,57 +297,29 @@
           </div>
 
           <div class="row text-center">
-            <div class="col-md-6 col-md-4 col-sm-4  mb-0">
-              <div class="card" data-aos="flip-left">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="{{asset('images/profile-user (1).png')}}"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
+            @if ($countTestimonials === 0)
+            <p class="lead text-primary">Loading... content please bear with us</p>
+            @else
+             @foreach ($countTestimonials as $content)
+             <div class="col-md-6 col-md-4 col-sm-4  mb-0">
+                <div class="card" data-aos="flip-left">
+                  <div class="card-body py-4 mt-2">
+                    <div class="d-flex justify-content-center mb-4">
+                      <img src="{{asset('images/profile-user (1).png')}}"
+                        class="rounded-circle shadow-1-strong" width="100" height="100" />
+                    </div>
+                    <h4 class="font-weight-bold text-success">{{$content->name}}</h4>
+                    <h6 class="font-weight-bold my-3 text-primary">{{$content->business}}</h6>
+                    <p class="mb-2 lead">
+                      <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
+                      {{$content->description}}
+                      <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
+                    </p>
                   </div>
-                  <h4 class="font-weight-bold text-success">Bright Mutyandaedza</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">CEO, Savana Solutions</h6>
-                  <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
-                    Working with Inncapel was a game-changer for our business! Their web development team not only created a stunning website but also boosted our online presence, leading to increased traffic and conversions. Highly recommend their services!
-                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
-                  </p>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 col-md-4 mb-0">
-              <div class="card" data-aos="flip-left">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="{{asset('images/profile-user (1).png')}}"
-                      class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h4 class="font-weight-bold text-success">Kumbirai Mudadada</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">General Manager, One Touch</h6>
-                  <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
-                    Inncapel turned our vision into reality with their exceptional web development skills. They delivered a user-friendly and visually appealing website that exceeded our expectations. If you want top-notch web development, look no further!
-                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-md-4 mb-0">
-              <div class="card" data-aos="flip-left">
-                <div class="card-body py-4 mt-2">
-                  <div class="d-flex justify-content-center mb-4">
-                    <img src="{{asset('images/profile-user (1).png')}}"
-                    class="rounded-circle shadow-1-strong" width="100" height="100" />
-                  </div>
-                  <h4 class="font-weight-bold text-success">Regis Goredema</h4>
-                  <h6 class="font-weight-bold my-3 text-primary">CEO, Regis Kitchens</h6>
-                  <p class="mb-2 lead">
-                    <i class="fas fa-quote-left pe-2" style="color: #FF6F61"></i>
-                    Thanks to Inncapel, our website now stands out in a competitive market. Their expertise in web development brought our brand to life online, attracting more customers and boosting our credibility. Trustworthy, professional, and highly recommended!
-                    <i class="fas fa-quote-right pe-2" style="color: #FF6F61"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
+             @endforeach
+            @endif
           </div>
         </div>
 
@@ -619,58 +336,32 @@
             <div class="col-12 col-xl-11">
                 <h1 class="mb-3 text-center" style="color:#4CAF50">How can we help?</h1>
               <p class="lead">We hope you have found an answer to your question. If you need any help, please search your query on our Support Center or contact us via email.</p>
-              <div class="accordion accordion-flush" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    1. What services does Inncapel offer?
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                      <p>Inncapel offers a range of services including web development, digital marketing, graphic design, education, web hosting, and automation solutions.</p>
+                <div class="accordion accordion-flush" id="accordionExample">
+                   @if ($countFaqs === 0)
+                   <span class="lead">Loading... Content please bear with us !</span>
+                   @else
 
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header lead" id="headingTwo">
-                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    2. What sets Inncapel apart from other web development agencies?
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                        Inncapel stands out for its innovative approach, personalized solutions, and commitment to delivering exceptional results that align with our clients' goals.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    3. Does Inncapel provide ongoing support and maintenance for websites?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                      <p>Absolutely! Inncapel offers ongoing support and maintenance services to ensure your website runs smoothly, stays secure, and remains up-to-date with the latest technologies.</p>
+                   @foreach ($faqContent as $content )
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span class="numbering">{{ $loop->first ? '1' : sprintf('%2d', $loop->index + 1) }}. </span> {{$content->question}}
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body lead">
+                            <p>
+                                {{$content->answer}}
 
-                    </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed lead" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    4. How can I contact Inncapel for inquiries or support?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body lead">
-                      <p>You can reach us through our contact page on our website or email us at [info@inncapel.com | +263778186399]. We're also available on social media platforms for quick communication.</p>
+                            </p>
 
+                            </div>
+                        </div>
                     </div>
+                   @endforeach
+                   @endif
                 </div>
-                </div>
-              </div>
+            </div>
             </div><br><br>
           </div>
           <div class="call-toaction">
@@ -697,7 +388,13 @@
                 </div>
                 <div>
                   <h4 class="mb-3 text-white">Address</h4>
-                  <address class="mb-0 text-white">3156 Old Highfield, Harare, Zimbabwe</address>
+                  <address class="mb-0 text-white">
+                    @if ($contacts)
+                    {{$contacts->address}}
+                    @else
+                    <span>No address as of now !</span>
+                    @endif
+                </address>
                 </div>
               </div>
               <div class="row mb-5">
@@ -711,7 +408,13 @@
                     <div>
                       <h4 class="mb-3 text-white">Phone</h4>
                       <p class="mb-0">
-                        <a class="link-secondary text-decoration-none text-white" href="tel:+15057922430">+263778186399</a>
+                        <a class="link-secondary text-decoration-none text-white" href="tel:+263778186399">
+                        @if ($contacts)
+                        {{$contacts->phone}}
+                        @else
+                        <span>No phone as of now !</span>
+                        @endif
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -727,7 +430,12 @@
                     <div>
                       <h4 class="mb-3 text-white">E-Mail</h4>
                       <p class="mb-0">
-                        <a class="link-secondary text-decoration-none text-white" href="mailto:demo@yourdomain.com">info@inncapel.com</a>
+                        <a class="link-secondary text-decoration-none text-white" href="mailto:demo@yourdomain.com">
+                        @if ($contacts)
+                        {{$contacts->email}}
+                        @else
+                        <span>No email as of now !</span>
+                        @endif
                       </p>
                     </div>
                   </div>
@@ -743,8 +451,20 @@
                 <div>
                   <h4 class="mb-3 text-white">Opening Hours</h4>
                   <div class="d-flex mb-1">
-                    <p class="text-secondary fw-bold mb-0 me-5 text-white">Mon - Fri</p>
-                    <p class="text-secondary mb-0 text-white">8am - 17pm</p>
+                    <p class="text-secondary fw-bold mb-0 me-5 text-white">
+                        @if ($contacts)
+                        {{$contacts->opening_days}}
+                        @else
+                        <span>No days as of now !</span>
+                        @endif
+                    </p>
+                    <p class="text-secondary mb-0 text-white">
+                        @if ($contacts)
+                        {{$contacts->opneing_hours}}
+                        @else
+                        <span>No hours as of now !</span>
+                        @endif
+                    </p>
                   </div>
                 </div>
               </div>
@@ -823,22 +543,22 @@
 <!-- Right -->
 <div>
  <a href="" class="text-white me-4">
-   <i class="fab fa-facebook-f" style="color: #FF6F61"></i>
+   <i class="fab fa-facebook-f" style="color: #FF6F61; "></i>
  </a>
  <a href="" class="text-white me-4">
-   <i class="fab fa-youtube" style="color: #FF6F61"></i>
+   <i class="fab fa-youtube" style="color: #FF6F61;"></i>
  </a>
  <a href="" class="text-white me-4">
-    <i class="fa-brands fa-tiktok" style="color: #FF6F61"></i>
+    <i class="fa-brands fa-tiktok" style="color: #FF6F61;"></i>
  </a>
  <a href="" class="text-white me-4">
-   <i class="fab fa-twitter" style="color: #FF6F61"></i>
+   <i class="fab fa-twitter" style="color: #FF6F61;"></i>
  </a>
  <a href="" class="text-white me-4">
-   <i class="fab fa-linkedin" style="color: #FF6F61"></i>
+   <i class="fab fa-linkedin" style="color: #FF6F61;"></i>
  </a>
  <a href="" class="text-white me-4">
-   <i class="fab fa-github" style="color: #FF6F61"></i>
+   <i class="fab fa-github" style="color: #FF6F61;"></i>
  </a>
 </div>
 <!-- Right -->
@@ -898,24 +618,12 @@
          class="mb-4 mt-0 d-inline-block mx-auto"
          style="width: 60px; background-color:#FF6F61; height: 2px"
          />
-         <p class="nav-item">
-            <a href="#!" class="nav-link" style="font-size: 16px;">About Us</a>
+        @foreach ($navbarItems as $item)
+          <p class="nav-item">
+            <a class="nav-link" href="{{$item->url}}" style="font-size: 16px;">{{$item->title}}</a>
           </p>
-         <p class="nav-item">
-            <a href="#!" class="nav-link" style="font-size: 16px;">Our Services</a>
-          </p>
-         <p class="nav-item">
-            <a href="#!" class="nav-link" style="font-size: 16px;">Our Projects</a>
-          </p>
-         <p class="nav-item">
-            <a href="#!" class="nav-link" style="font-size: 16px;">Client Testimonials</a>
-          </p>
-         <p class="nav-item">
-            <a href="#!" class="nav-link" style="font-size: 16px;">Our Courses</a>
-          </p>
-         <p class="nav-item">
-            <a href="#!" class="nav-link" style="font-size: 16px;">Our Blog</a>
-          </p>
+
+        @endforeach
    </div>
    <!-- Grid column -->
 
@@ -927,10 +635,35 @@
          class="mb-4 mt-0 d-inline-block mx-auto"
          style="width: 60px; background-color: #FF6F61; height: 2px"
          />
-     <p class="text-success"><i class="fas fa-home mr-3" style="color: #FF6F61"></i> 3156 Old Highfiled, Harare, Zimbabwe</p>
-     <p class="text-success"><i class="fas fa-envelope mr-3" style="color: #FF6F61"></i> info@inncapel.com</p>
-     <p class="text-success"><i class="fas fa-phone mr-3"  style="color: #FF6F61"></i> +263778186399</p>
-     <p class="text-success"><i class="fas fa-print mr-3"  style="color: #FF6F61"></i> +263780322839</p>
+     <p class="text-success"><i class="fas fa-home mr-3 p-2" style="color: #FF6F61"></i>
+        @if ($contacts)
+        {{$contacts->address}}
+        @else
+        <span>No address as of now !</span>
+        @endif
+    </p>
+     <p class="text-success"><i class="fas fa-envelope mr-3 p-2" style="color: #FF6F61"></i>
+        @if ($contacts)
+        {{$contacts->email}}
+        @else
+        <span>No address as of now !</span>
+        @endif
+    </p>
+     <p class="text-success"><i class="fas fa-phone mr-3 p-2"  style="color: #FF6F61"></i>
+        @if ($contacts)
+        {{$contacts->phone}}
+        @else
+        <span>No address as of now !</span>
+        @endif
+
+    </p>
+     <p class="text-success"><i class="fa fa-clock mr-3 p-2"  style="color: #FF6F61"></i>
+        @if ($contacts)
+        {{$contacts->opening_days}} | {{$contacts->opening_hours}}
+        @else
+        <span>No address as of now !</span>
+        @endif
+    </p>
    </div>
    <!-- Grid column -->
  </div>
@@ -972,24 +705,12 @@ id="btn-back-to-top" style="background: #FF6F61"
 document.addEventListener('DOMContentLoaded', function() {
     const ano1 = annotate(document.querySelector('.ano1'), { type: 'underline' });
     const ano2 = annotate(document.querySelector('.ano2'), { type: 'underline' });
-    const ano3 = annotate(document.querySelector('.ano3'), { type: 'underline' });
-    const ano4 = annotate(document.querySelector('.ano4'), { type: 'underline' });
-    const ano5 = annotate(document.querySelector('.ano5'), { type: 'underline' });
-    const ano6 = annotate(document.querySelector('.ano6'), { type: 'underline' });
-    const ano7 = annotate(document.querySelector('.ano7'), { type: 'underline' });
-    const ano8 = annotate(document.querySelector('.ano8'), { type: 'underline' });
     // const ano3 = annotate(document.querySelector('.ano3'), { type: 'circle' });
 
-    const ag = annotationGroup([ano1, ano2,ano3,ano4,ano5,ano6,ano7,ano8]);
+    const ag = annotationGroup([ano1, ano2]);
     ag.show();
     ano1.color = '#FF6F61';
     ano2.color = '#FF6F61';
-    ano3.color = '#FF6F61';
-    ano4.color = '#FF6F61';
-    ano5.color = '#FF6F61';
-    ano6.color = '#FF6F61';
-    ano7.color = '#FF6F61';
-    ano8.color = '#FF6F61';
 });
 
 </script>

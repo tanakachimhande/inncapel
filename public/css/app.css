@@ -1,3 +1,4 @@
+
 body{
     background-color: #D4D4D4;
 }
@@ -11,6 +12,31 @@ body{
   .nav-item .nav-link:hover {
     color: #FF6F61; /* Color on hover */
   }
+
+  #logo-image{
+    width: 205px;
+    object-fit: cover;
+  }
+
+  #navbarr{
+    height: 13vh;
+}
+
+
+  @media (max-width:768px) {
+
+    #logo-image{
+        width: 100px;
+    }
+
+    #navbarr{
+        height:auto;
+    }
+    #page-tag{
+        margin-top: 15px;
+    }
+
+}
 
 /* Why choose us section styles */
 
@@ -266,10 +292,11 @@ h1 {
 
 /* Solgan Responsiveness */
 
-@media (max-width:425px){
+@media (max-width:768px){
 
     #slogan{
         font-size: 13px;
+        margin-top: 30px;
     }
 }
 
