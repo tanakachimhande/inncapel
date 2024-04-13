@@ -88,12 +88,12 @@
         <div class="col-lg">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
               <div class="col-12 col-md-12 col-sm-8 col-lg-6">
-                <img src="{{asset('images/Website Creator (1).gif')}}" class="d-block w-100 col-md-12" alt="Wild Landscape" style="height: 60vh;object-fit:contain;" id="gif"/>
+                <img src="{{asset('images/Website Creator (1).gif')}}" class="d-block w-100 col-md-12" alt="Wild Landscape" style="height: ;object-fit:cover;" id="gif"/>
               </div>
               <div class="col-lg-6">
                  @if($heroContent)
                  <h1 class="display-5 fw-bold lh-1 mb-3" style="color:#4CAF50;" id="heroheader">{{$heroContent->title}}</h1><br>
-                 <p class="lead">
+                 <p class="lead" style="font-size: 22px;">
                      {{$heroContent->description}}
                  </p><br>
                  <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -182,7 +182,7 @@
                      @foreach ($whyusContent as $contnet )
                         <div class="col-sm-6 col-lg-4" >
                             <div class="box" data-aos="zoom-out-down">
-                                <span>{{ $loop->first ? '01' : sprintf('%02d', $loop->index + 1) }}</span>
+                                <span class="text-primary">{{ $loop->first ? '01' : sprintf('%02d', $loop->index + 1) }}</span>
                                 <h4>{{$contnet->title}}</h4>
                                 <p class="lead text-white">
                                      {{$contnet->description}}
@@ -371,14 +371,13 @@
       </div>
     </div>
   </section>
-  <!-- Contact 3 - Bootstrap Brain Component -->
-<section class="bg-primary py-3 py-md-5">
+  <section class=" py-3 py-md-5" style="background: #0077CC">
     <div class="container">
       <div class="row gy-3 gy-md-4 gy-lg-0 align-items-md-center">
         <div class="col-12 col-lg-6">
           <div class="row justify-content-xl-center">
             <div class="col-12 col-xl-11">
-                <h1 class="mb-3 text-center anotate" style="color: #FF6F61;">Get in touch</h1>
+             <h1 class="text-center" style="color: #FF6F61;" id="line">Get in touch</h1>
               <p class="lead text-white">We're always on the lookout to work with new clients. If you're interested in working with us, please get in touch in one of the following ways.</p><br>
               <div class="d-flex mb-5">
                 <div class="me-4" style="color:#FF6F61">
@@ -394,7 +393,7 @@
                     @else
                     <span>No address as of now !</span>
                     @endif
-                </address>
+                  </address>
                 </div>
               </div>
               <div class="row mb-5">
@@ -408,12 +407,12 @@
                     <div>
                       <h4 class="mb-3 text-white">Phone</h4>
                       <p class="mb-0">
-                        <a class="link-secondary text-decoration-none text-white" href="tel:+263778186399">
-                        @if ($contacts)
-                        {{$contacts->phone}}
-                        @else
-                        <span>No phone as of now !</span>
-                        @endif
+                        <a class="link-secondary text-decoration-none text-white" href="tel:+15057922430">
+                            @if ($contacts)
+                            {{$contacts->phone}}
+                            @else
+                            <span>No number as of now !</span>
+                            @endif
                         </a>
                       </p>
                     </div>
@@ -430,12 +429,13 @@
                     <div>
                       <h4 class="mb-3 text-white">E-Mail</h4>
                       <p class="mb-0">
-                        <a class="link-secondary text-decoration-none text-white" href="mailto:demo@yourdomain.com">
-                        @if ($contacts)
-                        {{$contacts->email}}
-                        @else
-                        <span>No email as of now !</span>
-                        @endif
+                        <a class="link-secondary text-decoration-none text-white" href="mailto:info@inncapel.com">
+                            @if ($contacts)
+                            {{$contacts->email}}
+                            @else
+                            <span>No email as of now !</span>
+                            @endif
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -455,14 +455,14 @@
                         @if ($contacts)
                         {{$contacts->opening_days}}
                         @else
-                        <span>No days as of now !</span>
+                        <span>No address as of now !</span>
                         @endif
                     </p>
                     <p class="text-secondary mb-0 text-white">
                         @if ($contacts)
-                        {{$contacts->opneing_hours}}
+                        {{$contacts->opening_hours}}
                         @else
-                        <span>No hours as of now !</span>
+                        <span>No address as of now !</span>
                         @endif
                     </p>
                   </div>
@@ -587,26 +587,23 @@
    <!-- Grid column -->
    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
      <!-- Links -->
-     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Products</h6>
+     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Our Products</h6>
      <hr
          class="mb-4 mt-0 d-inline-block mx-auto"
          style="width: 60px; background-color: #FF6F61; height: 2px"
          />
-     <p class="nav-item">
-       <a href="#!" class="nav-link" style="font-size: 16px;">LinkQuickly</a>
-     </p>
-     <p>
-     <p class="nav-item">
-       <a href="#!" class="nav-link" style="font-size: 16px;">FilesSyncro</a>
-     </p>
-     <p>
-     <p class="nav-item">
-       <a href="#!" class="nav-link" style="font-size: 16px;">Fiextrac</a>
-     </p>
-     <p>
-     <p class="nav-item">
-       <a href="#!" class="nav-link" style="font-size: 16px;">Cliidi</a>
-     </p>
+     @if ($countProducts === 0)
+     <span class="text-warning">Not products as yet</span>
+     @else
+      @foreach ($products as $product)
+      <p class="nav-item">
+        <a href="{{$product->product_link}}" class="nav-link" style="font-size: 16px;">{{$product->product_name}}</a>
+      </p>
+      @endforeach
+
+     @endif
+
+
    </div>
    <!-- Grid column -->
 
@@ -630,7 +627,7 @@
    <!-- Grid column -->
    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
      <!-- Links -->
-     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Contact</h6>
+     <h6 class="text-uppercase fw-bold" style="color: #FF6F61;">Contact Us</h6>
      <hr
          class="mb-4 mt-0 d-inline-block mx-auto"
          style="width: 60px; background-color: #FF6F61; height: 2px"
@@ -712,6 +709,14 @@ document.addEventListener('DOMContentLoaded', function() {
     ano1.color = '#FF6F61';
     ano2.color = '#FF6F61';
 });
+
+// Assuming the title is inside an element with an ID, such as 'titleElement'
+const titleElement = document.getElementById('heroheader');
+if (titleElement) {
+    // Replace 'Marketing' and 'Automation' with the same words wrapped in a span with a class or inline style for blue color
+    titleElement.innerHTML = titleElement.innerHTML.replace(/(Marketing|Automation)/g, '<span class="text-prima" style="color:#FF6F61;text-decoration:underline;">$1</span>');
+}
+
 
 </script>
 

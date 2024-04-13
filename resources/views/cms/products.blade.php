@@ -11,7 +11,7 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" integrity="sha512-gOQQLjHRpD3/SEOtalVq50iDn4opLVup2TF8c4QPI3/NmUPNZOk2FG0ihi8oCU/qYEsw4P6nuEZT2lAG0UNYaw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
@@ -72,9 +72,9 @@
             </a>
           </li>
           <li class="">
-            <a href="{{route('home-hero-section')}}">
-              <i class="fa fa-home text-white" style="background-color:#2ecc71"></i>
-              <span class="text-white" style="font-size: 18px">Hero</span>
+            <a href="{{route('navbar-section')}}" >
+              <i class="fa fa-bars text-white" style="background-color:#2ecc71"></i>
+              <span class="text-white" style="font-size: 18px">Navbar</span>
             </a>
           </li>
           <li class="">
@@ -96,9 +96,9 @@
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('why-us')}}">
               <i class="fa fa-quote-right text-white" style="background-color:#2ecc71"></i>
-              <span class="text-white" style="font-size: 18px">Testimonials</span>
+              <span class="text-white" style="font-size: 18px">Why Us</span>
             </a>
           </li>
           <li class="">
@@ -131,9 +131,9 @@
   <!-- sidebar-wrapper  -->
   <main class="page-content">
     <div class="container-fluid">
-        <h4 style="color: #3498db">NAVBAR SECTION</h4>
+        <h4 style="color: #3498db">PRODUCTS SECTION</h4>
       <hr>
-      <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Navbar Items</a>
+      <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Content</a>
       <hr>
       <div class="d-flex align-items-center h-100">
         <div class="container">
@@ -145,47 +145,30 @@
                     <table class="table table-striped mb-0 table-bordered" >
                       <thead style="background-color:black;color:white;font-weight:bold;">
                         <tr class="text-center">
-                            <th>Navbar Item Title</th>
-                            <th>Navbar Item Link</th>
+                            <th>Product Name</th>
+                            <th>Product Url</th>
                             <th>Operations</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($navbarItems as $navbarItem )
+
+                       @if ($countProducts === 0)
+                       <span class="text-warning">No project as yet</span>
+                       @else
+                       @foreach ($products as $product )
                         <tr class="text-center">
-                            <td>{{$navbarItem->title}}</td>
-                            <td>{{$navbarItem->url}}</td>
+                            <td>{{$product->product_name}}</td>
+                            <td>{{$product->product_link}}</td>
                             <td>
-                             <a href="{{route('edit-navbar-item',['id'=>$navbarItem->id])}}"  class='btn btn-sm btn-success'>
-                                 <i class='fa fa-edit fa-x2'></i>
-                             </a>
-                             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal{{$navbarItem->id}}"><i class='fa fa-trash fa-x2'></i></button>
-                           </td>
+                            <a href=""  class='btn btn-sm btn-success'>
+                                <i class='fa fa-edit fa-x2'></i>
+                            </a>
+                            <a href="#" class="btn btn-danger btn-sm"><i class='fa fa-trash fa-x2'></i></a>
+                            </td>
                         </tr>
-                          {{-- The Confirmation Modal --}}
 
-                          <div class="modal fade" id="deleteConfirmationModal{{$navbarItem->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel{{$navbarItem->id}}" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteConfirmationModalLabel{{$navbarItem->id}}">Confirm Deletion</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Are you sure you want to delete this item?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                                        <a href="{{route('deletenavitems',['id'=>$navbarItem->id])}}" class="btn btn-danger">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- End of the Confirmation Modal --}}
-                        @endforeach
+                       @endforeach
+                       @endif
                       </tbody>
                     </table>
                   </div>
@@ -202,19 +185,20 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Navbar Items</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Content</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="{{route('store-navbar-items')}}">
+                <form method="post" action="{{route('store-product-links')}}">
                 @csrf
+                <input type="hidden" value="1"  name="record_id'">
                 <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Title:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="title" required>
+                    <label for="message-text" class="col-form-label">Product Name:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="product_name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Link:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="url" required>
+                    <label for="message-text" class="col-form-label">Product Link:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="product_link" required>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -234,8 +218,8 @@
   <!-- page-content" -->
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha512-7VTiy9AhpazBeKQAlhaLRUk+kAMAb8oczljuyJHPsVPWox/QIXDFOnT9DUk1UC8EbnHKRdQowT7sOBe7LAjajQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" ></script>

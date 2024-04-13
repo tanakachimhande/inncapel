@@ -34,6 +34,9 @@ Route::get('dashboard',[PagesController::class,'dashboard'])->name('dashboard');
 
 Route::get('navbarsection',[PagesController::class,'navbarSection'])->name('navbar-section');
 Route::post('store-navbar-items',[PagesController::class,'storeNavbarItems'])->name('store-navbar-items');
+Route::get('delete-content/{id}',[PagesController::class,'deletenavitems'])->name('deletenavitems');
+Route::get('edit-content/{id}',[PagesController::class,'editnavitems'])->name('edit-navbar-item');
+Route::post('update-content',[PagesController::class,'updatenavitems'])->name('update-navbar-item');
 
 
                                 // Home Hero Routes
@@ -76,5 +79,10 @@ Route::post('store-service-category-content',[PagesController::class,'storeServi
 
 Route::get('projects-content',[PagesController::class,'projectsContent'])->name('projects-content');
 Route::post('store-project-content',[PagesController::class,'storeProjectContent'])->name('store-project-content');
+
+                               // Products Routes
+
+Route::get('product_links',[PagesController::class,'productLinks'])->name('product-links');
+Route::post('store-product-links',[PagesController::class,'storeProductLinks'])->name('store-product-links');
 
 

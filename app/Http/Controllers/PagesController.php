@@ -13,6 +13,7 @@ use App\Models\Contact;
 use App\Models\ServiceCategory;
 use App\Models\Service;
 use App\Models\project;
+use App\Models\Product;
 
 class PagesController extends Controller
 {
@@ -23,9 +24,11 @@ class PagesController extends Controller
         $whyusContent = whyus::all();
         $clientTestimonials = Testimonial::all();
         $faqContent = Faq::all();
+        $products = Product::all();
         $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
         $countWhyus = $whyusContent->count();
+        $countProducts = $products->count();
         $countTestimonials = $clientTestimonials->count();
         $countFaqs = $faqContent->count();
         $countServiceCategory = $serviceCategoryContent->count();
@@ -45,6 +48,8 @@ class PagesController extends Controller
             'countTestimonials'=>$clientTestimonials,
             'countFaqs'=> $countFaqs,
             'countServiceCategory'=>$countServiceCategory,
+            'products'=>$products,
+            'countProducts'=>$countProducts
         ]);
     }
     public function about (){
@@ -120,6 +125,30 @@ class PagesController extends Controller
         $data->save();
 
         return back()->with('message','Navbar Items Added');
+    }
+
+    public function deletenavitems ($id){
+
+        $data = Navbar::find($id);
+        $data->delete();
+
+        return back()->with('message','Deleted Permanently');
+    }
+
+    public function editnavitems ($id){
+
+         $data = Navbar::find($id);
+         return view('cms.operations.editNavbar',['navbaritem'=>$data]);
+    }
+
+    public function updatenavitems (Request  $request){
+
+        $data = Navbar::find($request->id);
+        $data->title = $request->title;
+        $data->url = $request->url;
+        $data->save();
+
+        return back()->with('message', 'Record Updated');
     }
 
     // Home Hero Conetent
@@ -346,6 +375,30 @@ class PagesController extends Controller
             // Save the image path in the database
             $data->project_image_path = 'projects_images/' . $imageName;
         }
+
+        if ($data->save()) {
+            return back()->with('message', 'Record Was Saved');
+        } else {
+            return back()->withErrors('Failed to save record');
+        }
+
+
+    }
+
+      // Products Conetent
+
+      public function productLinks  (){
+
+        $products = Product::all();
+        $countProducts = $products->count();
+        return view('cms.products',['countProducts'=>$countProducts,'products'=>$products]);
+    }
+
+    public function storeProductLinks (Request $request){
+
+        $data = new Product();
+        $data->product_name = $request->product_name;
+        $data->product_link = $request->product_link;
 
         if ($data->save()) {
             return back()->with('message', 'Record Was Saved');

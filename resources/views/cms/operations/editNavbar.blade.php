@@ -11,6 +11,13 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+      <!-- MDB -->
+      <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+      rel="stylesheet"
+      />
     <!-- Include Compiled JS -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
@@ -115,57 +122,50 @@
     <div class="container-fluid">
         <h4 style="color: #3498db">DASHBOARD</h4>
       <hr>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">TOTAL INCOME</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;"></span>
-                    </div>
+         <div class="container bg-white p-5">
+            <h2>Update Content</h2><br>
+            <form action="{{route('update-navbar-item')}}"  method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{$navbaritem->id}}">
+                <div class="form-outline mb-3" data-mdb-input-init>
+                    <input type="text" id="form12" class="form-control form-control-lg" value='{{$navbaritem->title}}' name="title" />
+                    <label class="form-label" for="form12">Nav Item</label>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">TOTAL BUDGET</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">AMOUNT USED</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">AMOUNT LEFT</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div class="form-outline mb-3" data-mdb-input-init>
+                    <input type="text" id="form12" class="form-control form-control-lg" value='{{$navbaritem->url}}' name="url"/>
+                    <label class="form-label" for="form12">Nav Link</label>
+                </div><br>
+                <button class="btn btn-success">Update Content</button>
+             </form>
+         </div>
     </div>
 
   </main>
   <!-- page-content" -->
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/dashjs.js') }}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <!-- MDB -->
+ <script
+ type="text/javascript"
+ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+ ></script>
+
+ @if (Session::has('message'))
+    <script>
+        swal("Successfully", "{!!Session::get('message')!!}", "success",{
+            button:true,
+            button:'ok',
+            timer:3000,
+            successMode:true
+        });
+    </script>
+@endif
+
 </body>
 </html>
