@@ -43,21 +43,33 @@ Route::post('update-content',[PagesController::class,'updatenavitems'])->name('u
 
 Route::get('home-hero-section',[PagesController::class,'heroSection'])->name('home-hero-section');
 Route::post('store-hero-content',[PagesController::class,'storeHeroContent'])->name('store-hero-content');
+Route::get('delete-content/{id}',[PagesController::class,'deleteHero'])->name('delete-hero');
+Route::get('edit-content/{id}',[PagesController::class,'editHero'])->name('edit-hero');
+Route::post('update-content',[PagesController::class,'updateHero'])->name('update-hero');
 
                                //About Section Routes
 
 Route::get('about-content',[PagesController::class,'aboutContent'])->name('about-content');
 Route::post('store-about-content',[PagesController::class,'storeAboutContent'])->name('store-about-content');
+Route::get('delete-content/{id}',[PagesController::class,'deleteAbout'])->name('delete-about');
+Route::get('edit-content/{id}',[PagesController::class,'editAbout'])->name('edit-about');
+Route::post('update-content',[PagesController::class,'updateAbout'])->name('update-about');
 
                                 // Why choose us Routes
 
 Route::get('why-us',[PagesController::class,'whyus'])->name('why-us');
 Route::post('store-whyus-content',[PagesController::class,'storeWhyusContent'])->name('store-whyus-content');
+Route::get('delete-content/{id}',[PagesController::class,'deleteWhyus'])->name('delete-whyus');
+Route::get('edit-content/{id}',[PagesController::class,'editWhyus'])->name('edit-whyus');
+Route::post('update-content',[PagesController::class,'updateWhyus'])->name('update-whyus');
 
                                 // Client Testimonials Routes
 
 Route::get('client-testimonials',[PagesController::class,'testimonialsContent'])->name('testimonials-content');
 Route::post('store-testimonials-content',[PagesController::class,'storeTestimonialsContent'])->name('store-testimonials-content');
+Route::get('delete-content/{id}',[PagesController::class,'deleteTesty'])->name('delete-testy');
+Route::get('edit-content/{id}',[PagesController::class,'editTesty'])->name('edit-testy');
+Route::post('update-content',[PagesController::class,'updateTesty'])->name('update-testy');
 
 
                                 // FAQs Routes

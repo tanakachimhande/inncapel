@@ -158,6 +158,31 @@ class PagesController extends Controller
         return view('cms.homehero',['heroContent'=>$heroContent]);
     }
 
+    public function deleteHero ($id){
+
+        $data = HomeHero::find($id);
+        $data->delete();
+
+        return back()->with('message','Deleted Permanently');
+    }
+
+    public function editHero ($id){
+
+        $data = HomeHero::find($id);
+
+        return view('cms.operations.editHero',['hero'=>$data]);
+    }
+
+    public function updateHero (Request $request){
+
+        $data = HomeHero::find($request->id);
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->save();
+
+        return back()->with('message', 'Record Updated');
+    }
+
     public function storeHeroContent (Request $request){
 
         $recordId = 1;
@@ -189,6 +214,27 @@ class PagesController extends Controller
     public function aboutContent (){
         $aboutContent =  About::all();
         return view('cms.aboutcontent',['about'=>$aboutContent]);
+    }
+
+    public function deleteAbout ($id){
+        $data =  About::find($id);
+        $data->delete();
+
+        return back()->with('message', 'Deleted Permanently');
+    }
+
+    public function editAbout ($id){
+        $data =  About::find($id);
+        return view('cms.operations.editAbout',['about'=>$data]);
+    }
+
+    public function updateAbout (Request $request){
+
+        $data =  About::find($request->id);
+        $data->description = $request->description;
+        $data->save();
+
+        return back()->with('message', 'Record Updated');
     }
 
     public function storeAboutContent (Request $request){
@@ -224,6 +270,30 @@ class PagesController extends Controller
         return view('cms.whyus',['whyusContent'=>$whyusContent]);
     }
 
+    public function deleteWhyus ($id){
+
+        $data = Whyus::find($id);
+        $data->delete();
+
+        return back()->with('message', 'Deleted Permanently');
+    }
+
+    public function editWhyus ($id){
+
+        $data = Whyus::find($id);
+        return view('cms.operations.editWhyus',['whyus'=>$data]);
+    }
+
+    public function updateWhyus (Request $request){
+
+        $data = Whyus::find($request->id);
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->save();
+
+        return back()->with('message', 'Deleted Permanently');
+    }
+
     public function storeWhyusContent (Request $request){
         $data = new Whyus();
         $data->title = $request->title;
@@ -238,6 +308,32 @@ class PagesController extends Controller
     public function testimonialsContent (){
         $testimonials = Testimonial::all();
         return view('cms.testimonials',['testimonials'=>$testimonials]);
+    }
+
+    public function deleteTesty ($id){
+
+        $data = Testimonial::find($id);
+        $data->delete();
+
+        return back()->with('message','Deleted Permanently');
+    }
+
+    public function editTesty ($id){
+
+        $data = Testimonial::find($id);
+
+        return view('cms.operations.editTesty',['testy'=>$data]);
+    }
+
+    public function updateTesty (Request $request){
+
+        $data = Testimonial::find($request->id);
+        $data->name = $request->name;
+        $data->business = $request->business;
+        $data->description = $request->description;
+        $data->save();
+
+        return back()->with('message','Record Updated');
     }
 
     public function storeTestimonialsContent (Request $request){
