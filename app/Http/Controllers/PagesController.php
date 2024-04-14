@@ -353,6 +353,30 @@ class PagesController extends Controller
         return view('cms.faqs',['faqs'=>$faqs]);
     }
 
+    public function deleteFaq($id){
+
+        $faqs = Faq::find($id);
+        $faqs->delete();
+
+        return back()->with('message','Deleted Permanently');
+    }
+
+    public function editFaq($id){
+
+        $faqs = Faq::find($id);
+        return view('cms.operations.editFaq',['faq'=>$faqs]);
+    }
+
+    public function updateFaq(Request $request){
+
+        $faqs = Faq::find($request->id);
+        $faqs->question = $request->question;
+        $faqs->answer = $request->answer;
+        $faqs->save();
+
+        return back()->with('message','Record Updated');
+    }
+
     public function storeFaqContent (Request $request){
         $data = new Faq();
         $data->question = $request->question;
@@ -362,11 +386,39 @@ class PagesController extends Controller
         return back()->with('message','Record Saved');
     }
 
-    // Frequenetly Asked Questions Conetent
+    // Contact Conetent
 
     public function contactContent (){
         $contacts = Contact::all();
         return view('cms.contacts',['contacts'=>$contacts]);
+    }
+
+    public function deleteContact ($id){
+
+        $contacts = Contact::find($id);
+        $contacts->delete();
+
+        return back()->with('message','Deleted Permanently');
+    }
+
+    public function editContact ($id){
+
+        $contacts = Contact::find($id);
+
+        return view('cms.operations.editContact',['contact'=>$contacts]);
+    }
+
+    public function updateContact (Request $request){
+
+        $contacts = Contact::find($request->id);
+        $contacts->address =$request->address;
+        $contacts->phone =$request->phone;
+        $contacts->email =$request->email;
+        $contacts->opening_days =$request->opening_days;
+        $contacts->opening_hours =$request->opening_hours;
+        $contacts->save();
+
+        return back()->with('message','Record Updated');
     }
 
     public function storeContactContent (Request $request){
@@ -488,6 +540,31 @@ class PagesController extends Controller
         $products = Product::all();
         $countProducts = $products->count();
         return view('cms.products',['countProducts'=>$countProducts,'products'=>$products]);
+    }
+
+    public function deleteProduct  ($id){
+
+        $products = Product::find($id);
+        $products->delete();
+
+        return back()->with('message', 'Deleted Permanently');
+    }
+
+    public function editProduct  ($id){
+
+        $products = Product::find($id);
+
+        return view('cms.operations.editProduct',['product'=>$products]);
+    }
+
+    public function updateProduct  (Request $request){
+
+        $products = Product::find($request->id);
+        $products->product_name = $request->product_name;
+        $products->product_link = $request->product_link;
+        $products->save();
+
+        return back()->with('message', 'Record Updated');
     }
 
     public function storeProductLinks (Request $request){

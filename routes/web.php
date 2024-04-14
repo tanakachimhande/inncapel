@@ -76,11 +76,18 @@ Route::post('update-content',[PagesController::class,'updateTesty'])->name('upda
 
 Route::get('faq-content',[PagesController::class,'faqContent'])->name('faq-content');
 Route::post('store-faq-content',[PagesController::class,'storeFaqContent'])->name('store-faq-content');
+Route::get('delete-content/{id}',[PagesController::class,'deleteFaq'])->name('delete-faq');
+Route::get('edit-content/{id}',[PagesController::class,'editFaq'])->name('edit-faq');
+Route::post('update-content',[PagesController::class,'updateFaq'])->name('update-faq');
+
 
                                 //Contact Us Routes
 
 Route::get('contact-content',[PagesController::class,'contactContent'])->name('contact-content');
 Route::post('store-contact-content',[PagesController::class,'storeContactContent'])->name('store-contact-content');
+Route::get('delete-content/{id}',[PagesController::class,'deleteContact'])->name('delete-contact');
+Route::get('edit-content/{id}',[PagesController::class,'editContact'])->name('edit-contact');
+Route::post('update-content',[PagesController::class,'updateContact'])->name('update-contact');
 
                                 //Services Routes
 
@@ -96,5 +103,8 @@ Route::post('store-project-content',[PagesController::class,'storeProjectContent
 
 Route::get('product_links',[PagesController::class,'productLinks'])->name('product-links');
 Route::post('store-product-links',[PagesController::class,'storeProductLinks'])->name('store-product-links');
+Route::get('delete-product/{id}',[PagesController::class,'deleteProduct'])->name('delete-product');
+Route::get('edit-product/{id}',[PagesController::class,'editProduct'])->name('edit-product');
+Route::post('update-product',[PagesController::class,'updateProduct'])->name('update-product');
 
 
