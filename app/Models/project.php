@@ -17,9 +17,6 @@ class project extends Model
         'project_category'=>'project_category',
         'project_image_path'=>'project_image_path',
         'project_name'=>'project_name',
-        'client_name'=>'client_name',
-        'project_problem'=>'project_problem',
-        'project_solution'=>'project_solution',
         'project_url'=>'project_url',
 
     ];

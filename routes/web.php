@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\dashboard;
+use App\Http\Controllers\login;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +30,10 @@ Route::get('contact',[PagesController::class,'contact'])->name('contactpage');
 
 // Dashboard Functionalities
 
-Route::get('dashboard',[PagesController::class,'dashboard'])->name('dashboard');
+Route::get('admin',[login::class,'login'])->name('login');
+Route::get('dashboard',[dashboard::class,'dashboard'])->name('dashboard');
+
+
 
                                // Navbar Routes
 
@@ -93,11 +98,24 @@ Route::post('update-content',[PagesController::class,'updateContact'])->name('up
 
 Route::get('service-category-content',[PagesController::class,'serviceCategoryContent'])->name('service-category-content');
 Route::post('store-service-category-content',[PagesController::class,'storeServiceCategoryContent'])->name('store-service-category-content');
+Route::post('store-subservice',[PagesController::class,'storeServiceContent'])->name('store-subservice');
+Route::get('delete-content/{id}',[PagesController::class,'deleteService'])->name('delete-service');
+Route::get('edit-content/{id}',[PagesController::class,'editService'])->name('edit-service');
+Route::post('update-content',[PagesController::class,'updateService'])->name('update-service');
+
+                               // Sub Services Routes
+
+Route::get('delete-contentt/{id}',[PagesController::class,'deleteSubservice'])->name('delete-subservice');
+Route::get('edit-contentt/{id}',[PagesController::class,'editsubService'])->name('edit-subservice');
+Route::post('update-contentt',[PagesController::class,'updatesubService'])->name('update-subservice');
 
                                // Projects Routes
 
 Route::get('projects-content',[PagesController::class,'projectsContent'])->name('projects-content');
 Route::post('store-project-content',[PagesController::class,'storeProjectContent'])->name('store-project-content');
+Route::get('delete-project/{id}',[PagesController::class,'deleteProject'])->name('delete-project');
+Route::get('edit-project/{id}',[PagesController::class,'editProject'])->name('edit-project');
+Route::post('update-project',[PagesController::class,'updateProject'])->name('update-project');
 
                                // Products Routes
 

@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('project_category');
             $table->string('project_image_path');
             $table->string('project_name');
-            $table->string('client_name');
-            $table->string('project_problem');
-            $table->string('project_solution');
             $table->string('project_url');
             $table->timestamps();
 

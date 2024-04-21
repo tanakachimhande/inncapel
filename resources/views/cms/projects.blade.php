@@ -148,30 +148,48 @@
                             <th>Project Category</th>
                             <th>Project Image</th>
                             <th>Project Name</th>
-                            <th>Client Name</th>
-                            <th>Project Problem</th>
-                            <th>Project Solution</th>
                             <th>Project URL</th>
                             <th>Operations</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($projects as $project)
+                        @foreach ($projects as $content)
                         <tr class="text-center">
-                            <td>{{$project->project_category}}</td>
-                            <td>{{$project->project_image_path}}</td>
-                            <td>{{$project->project_name}}</td>
-                            <td>{{$project->client_name}}</td>
-                            <td>{{$project->project_problem}}</td>
-                            <td>{{$project->project_solution}}</td>
-                            <td>{{$project->project_url}}</td>
+                            <td>{{$content->project_category}}</td>
+                            <td>{{$content->project_image_path}}</td>
+                            <td>{{$content->project_name}}</td>
+                            <td>{{$content->project_url}}</td>
                             <td>
-                             <a href=""  class='btn btn-sm btn-success'>
-                                 <i class='fa fa-edit fa-x2'></i>
-                             </a>
-                             <a href="#" class="btn btn-danger btn-sm"><i class='fa fa-trash fa-x2'></i></a>
+                            <a href="{{route('edit-project',['id'=>$content->id])}}"  class='btn btn-sm btn-success'>
+                                <i class='fa fa-edit fa-x2'></i>
+                            </a>
+                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal{{$content->id}}"><i class='fa fa-trash fa-x2'></i></button>
+
                            </td>
                         </tr>
+                         {{-- The Confirmation Modal --}}
+
+                         <div class="modal fade" id="deleteConfirmationModal{{$content->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel{{$content->id}}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteConfirmationModalLabel{{$content->id}}">Confirm Deletion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this content?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                        <a href="{{route('delete-project',['id'=>$content->id])}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- End of the Confirmation Modal --}}
                         @endforeach
                       </tbody>
                     </table>
@@ -202,18 +220,6 @@
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label">Project Name:</label>
                     <input type="text" class="form-control" id="recipient-name" name="project_name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Client Name:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="client_name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Project Problem:</label>
-                    <textarea name="project_problem" cols="30" rows="3" class="form-control" required></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Project Solution:</label>
-                    <textarea name="project_solution" cols="30" rows="3" class="form-control" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label">Project Category:</label>

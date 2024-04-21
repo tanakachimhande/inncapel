@@ -157,12 +157,35 @@
                             <td>{{$content->services_title}}</td>
                             <td>{{$content->service_image_path}}</td>
                             <td>
-                             <a href=""  class='btn btn-sm btn-success'>
-                                 <i class='fa fa-edit fa-x2'></i>
-                             </a>
-                             <a href="#" class="btn btn-danger btn-sm"><i class='fa fa-trash fa-x2'></i></a>
+                            <a href="{{route('edit-service',['id'=>$content->id])}}"  class='btn btn-sm btn-success'>
+                                <i class='fa fa-edit fa-x2'></i>
+                            </a>
+                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal{{$content->id}}"><i class='fa fa-trash fa-x2'></i></button>
                            </td>
                         </tr>
+                           {{-- The Confirmation Modal --}}
+
+                           <div class="modal fade" id="deleteConfirmationModal{{$content->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel{{$content->id}}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteConfirmationModalLabel{{$content->id}}">Confirm Deletion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this content?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                        <a href="{{route('delete-service',['id'=>$content->id])}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- End of the Confirmation Modal --}}
                         @endforeach
                       </tbody>
                     </table>
@@ -196,12 +219,35 @@
                             <td>{{$content->service_category}}</td>
                             <td>{{$content->service_name}}</td>
                             <td>
-                             <a href=""  class='btn btn-sm btn-success'>
-                                 <i class='fa fa-edit fa-x2'></i>
-                             </a>
-                             <a href="#" class="btn btn-danger btn-sm"><i class='fa fa-trash fa-x2'></i></a>
+                            <a href="{{route('edit-subservice',['id'=>$content->id])}}"  class='btn btn-sm btn-success'>
+                                <i class='fa fa-edit fa-x2'></i>
+                            </a>
+                                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal{{$content->id}}"><i class='fa fa-trash fa-x2'></i></button>
                            </td>
                         </tr>
+                        {{-- The Confirmation Modal --}}
+
+                        <div class="modal fade" id="deleteConfirmationModal{{$content->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel{{$content->id}}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteConfirmationModalLabel{{$content->id}}">Confirm Deletion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this content?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                        <a href="{{route('delete-subservice',['id'=>$content->id])}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- End of the Confirmation Modal --}}
                         @endforeach
                       </tbody>
                     </table>
@@ -256,7 +302,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="{{route('store-service-content')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('store-subservice')}}">
                 @csrf
                 <input type="hidden" value="1"  name="record_id'">
                 <div class="mb-3">

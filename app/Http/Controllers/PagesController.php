@@ -104,11 +104,6 @@ class PagesController extends Controller
     }
 
 
-    // Dashboard Functionalities
-
-    public function dashboard (){
-        return view('cms.dashboard');
-    }
 
     // Navbar Section
 
@@ -451,6 +446,56 @@ class PagesController extends Controller
         $services = Service::all();
         return view('cms.servicescontent',['serviceCategory'=>$serviceCategory,'services'=>$services]);
     }
+    public function deleteService ($id){
+        $serviceCategory = ServiceCategory::find($id);
+        $filePath = $serviceCategory->service_image_path;
+        $serviceCategory->delete();
+        // Unlinking the file
+        if(file_exists($filePath)){
+            unlink($filePath);
+        }
+
+
+        return back()->with('message','Deleted Permanently');
+    }
+
+    public function editService ($id){
+        $services = ServiceCategory::find($id);
+        return view('cms.operations.editService',['service'=>$services]);
+
+    }
+
+    public function updateService(Request $request)
+    {
+        // Find the service category data to update
+        $data = ServiceCategory::find($request->id);
+
+        // Update the services title
+        $data->services_title = $request->services_title;
+
+        // Check if a new file is provided
+        if ($request->hasFile('service_image_path')) {
+            // Remove the old file if it exists
+            if (file_exists(public_path($data->service_image_path))) {
+                unlink(public_path($data->service_image_path));
+            }
+
+            // Upload the new file
+            $image = $request->file('service_image_path');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('services_images'), $imageName);
+
+            // Save the new file path in the database
+            $data->service_image_path = 'services_images/' . $imageName;
+        }
+
+        // Save the updated data
+        $data->save();
+
+        // Redirect back with a success message
+        return back()->with('message', 'Record Updated');
+    }
+
 
     public function storeServiceCategoryContent (Request $request){
 
@@ -476,6 +521,41 @@ class PagesController extends Controller
 
 
     }
+    public function deleteSubservice ($id){
+
+        $data = Service::find($id);
+        $data->delete();
+
+        return back()->with('message', 'Deleted Permanently');
+
+
+    }
+    public function editSubservice ($id){
+
+        $data = Service::find($id);
+        $serviceCategory = ServiceCategory::all();
+
+        return view('cms.operations.editSubservices',['serviceCategory'=>$serviceCategory,'subservice'=>$data]);
+
+
+    }
+
+    public function updateSubservice (Request $request){
+
+        $data = Service::find($request->id);
+        $data->service_name = $request->service_name;
+        $data->category_id = $request->category_id;
+        $data->service_category = $request->service_category;
+
+        if ($data->save()) {
+            return back()->with('message', 'Record Was updated');
+        } else {
+            return back()->withErrors('Failed to save record');
+        }
+
+
+
+    }
     public function storeServiceContent (Request $request){
 
         $data = new Service();
@@ -493,12 +573,58 @@ class PagesController extends Controller
     }
 
 
-    // Services Conetent
+    // Projects Conetent
+
+    public function deleteProject ($id){
+        $projects = project::find($id);
+        $projects->delete();
+
+        return back()->with('message', 'Permanently Deleted');
+
+    }
 
     public function projectsContent (){
         $serviceCategory = ServiceCategory::all();
         $projects = project::all();
         return view('cms.projects',['serviceCategory'=>$serviceCategory,'projects'=>$projects]);
+    }
+
+    public function editProject ($id){
+        $serviceCategory = ServiceCategory::all();
+        $projects = project::find($id);
+        return view('cms.operations.editProjects',['serviceCategory'=>$serviceCategory,'projects'=>$projects]);
+    }
+
+    public function updateProject (Request $request){
+
+        $data = project::find($request->id);
+        $data->category_id = $request->category_id;
+        $data->project_category = $request->service_category;
+        $data->project_name = $request->project_name;
+        $data->project_url = $request->project_url;
+
+         // Check if a new file is provided
+         if ($request->hasFile('project_image_path')) {
+            // Remove the old file if it exists
+            if (file_exists(public_path($data->project_image_path))) {
+                unlink(public_path($data->project_image_path));
+            }
+
+            // Upload the new file
+            $image = $request->file('project_image_path');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('services_images'), $imageName);
+
+            // Save the new file path in the database
+            $data->project_image_path = 'services_images/' . $imageName;
+        }
+
+        // Save the updated data
+        $data->save();
+
+        // Redirect back with a success message
+        return back()->with('message', 'Record Updated');
+
     }
 
 
@@ -508,9 +634,6 @@ class PagesController extends Controller
         $data->category_id = $request->category_id;
         $data->project_category = $request->service_category;
         $data->project_name = $request->project_name;
-        $data->client_name = $request->client_name;
-        $data->project_problem = $request->project_problem;
-        $data->project_solution = $request->project_solution;
         $data->project_url = $request->project_url;
 
          // Getting the uploaded image
