@@ -131,7 +131,9 @@
                             </div>
                             <div>
                                 <h2 class="h4 mb-3 text-white">INNOVATION !</h2>
-                                <p class="lead text-white">We provide you solutions.</p>
+                                <p class="lead text-white">
+                                    We don't just chase trends, we develop cutting-edge digital solutions that get you real results.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -142,7 +144,9 @@
                             </div>
                             <div>
                                 <h2 class="h4 mb-3 text-white">CAPTIVATION !</h2>
-                                <p class="lead text-white">We bring you customers.</p>
+                                <p class="lead text-white">
+                                    We craft captivating experiences that turn website visitors into loyal customers.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -153,7 +157,9 @@
                             </div>
                             <div>
                                 <h2 class="h4 mb-3 text-white">ELEVATION !</h2>
-                                <p class="lead text-white">We elevate your businesses.</p>
+                                <p class="lead text-white">
+                                    We help you elevate your business online with clear strategies and easy-to-manage solutions.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -216,7 +222,7 @@
                         @foreach ($categoriesWithServices  as  $content )
                         <div class="col-xs-12 col-md-4 col-sm-4">
                             <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                                <a class="img-card" href="">
                                 <img src="{{$content->service_image_path}}" alt="Web dev image" style=" object-fit: cover"/>
                               </a>
                                 <div class="card-content">

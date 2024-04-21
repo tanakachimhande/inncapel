@@ -300,7 +300,16 @@ h1 {
     }
 }
 
+/* Light Box */
 
+.img-card {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+ 
 
 
 

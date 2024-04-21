@@ -103,9 +103,10 @@
                          @foreach ($projects as $project)
                          <div class="col-xs-12 col-md-4 col-sm-4">
                             <div class="card" data-aos="flip-left">
-                                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                    <img src="{{asset($project->project_image_path)}}" alt="Web dev image" style=" object-fit: cover"/>
-                              </a>
+                                <a class="img-card" href="#" onclick="expandImage(event)">
+                                    <img src="{{asset($project->project_image_path)}}" alt="Web dev image" class="h-100"/>
+                                </a>
+
                                 <div class="card-content">
                                     <h4 class="card-title text-center text-success">
                                         {{$project->project_name}}
@@ -297,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
+
 
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
