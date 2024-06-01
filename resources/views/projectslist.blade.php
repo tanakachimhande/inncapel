@@ -104,6 +104,10 @@
 @endif
 </div>
 <br><br>
+<div style="position: fixed;width:100%;z-index:1000" id="page-tag">
+    <img src="{{asset('images/landscape-3773706_1280.jpg')}}" alt="" style="width:100%;height:8vh;object-fit:cover;z-index:1000;position:relative;">
+    <div class="overlay-text">Our Work</div>
+</div><br><br><br>
 
 {{-- End of slogan section --}}
 
