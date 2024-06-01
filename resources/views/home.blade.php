@@ -652,22 +652,22 @@
             <!-- Right -->
             <div>
             <a href="" class="text-white me-4">
-            <i class="fab fa-facebook-f" style="color: #FF6F61; "></i>
+            <i class="fab fa-facebook-f" style="color:white  "></i>
             </a>
             <a href="" class="text-white me-4">
-            <i class="fab fa-youtube" style="color: #FF6F61;"></i>
+            <i class="fab fa-youtube" style="color: white;"></i>
             </a>
             <a href="" class="text-white me-4">
-                <i class="fa-brands fa-tiktok" style="color: #FF6F61;"></i>
+                <i class="fa-brands fa-tiktok" style="color: white;"></i>
             </a>
             <a href="" class="text-white me-4">
-            <i class="fab fa-twitter" style="color: #FF6F61;"></i>
+            <i class="fab fa-twitter" style="color: white;"></i>
             </a>
             <a href="" class="text-white me-4">
-            <i class="fab fa-linkedin" style="color: #FF6F61;"></i>
+            <i class="fab fa-linkedin" style="color: white;"></i>
             </a>
             <a href="" class="text-white me-4">
-            <i class="fab fa-github" style="color: #FF6F61;"></i>
+            <i class="fab fa-github" style="color: white;"></i>
             </a>
             </div>
             <!-- Right -->
