@@ -14,9 +14,57 @@ use App\Models\ServiceCategory;
 use App\Models\Service;
 use App\Models\project;
 use App\Models\Product;
+use App\Models\Seo;
 
 class PagesController extends Controller
 {
+    public function seoData(){
+
+        $data = Seo::all();
+        return view('cms.seo',['seo'=>$data]);
+    }
+    public function deleteSeoData($id){
+
+        $data = Seo::find($id);
+        $data->delete();
+
+        return back()->with('message','Permanently Deleted');
+    }
+
+    public function editSeoData($id){
+
+        $data = Seo::find($id);
+
+        return view('cms.operations.editSeo',['seoData'=>$data]);
+    }
+
+    public function updateSeoData(Request $request){
+
+        $seoData = Seo::find($request->id);
+        $seoData->seo_page = $request->input('seo_page');
+        $seoData->seo_title = $request->input('seo_title');
+        $seoData->seo_description = $request->input('seo_description');
+        $seoData->seo_keywords = $request->input('seo_keywords');
+
+        $seoData->save();
+
+        return back()->with('message','Updated Successfully');
+    }
+
+    public function storeSeoData(Request $request)
+    {
+
+        $seoData = new Seo();
+        $seoData->seo_page = $request->input('seo_page');
+        $seoData->seo_title = $request->input('seo_title');
+        $seoData->seo_description = $request->input('seo_description');
+        $seoData->seo_keywords = $request->input('seo_keywords');
+        $seoData->save();
+
+        return back()->with('message','Seo Data Added');
+    }
+
+
     public function home (){
         $navItems = Navbar::all();
         $heroContent = HomeHero::first();
@@ -34,6 +82,10 @@ class PagesController extends Controller
         $countServiceCategory = $serviceCategoryContent->count();
         $categoriesWithServices = serviceCategory::with('services')->get();
 
+        // SEO Data
+
+        $seoData = Seo::where('seo_page','Home')->first();
+
         return view('home',[
             'navbarItems'=>$navItems,
             'heroContent'=>$heroContent,
@@ -49,7 +101,8 @@ class PagesController extends Controller
             'countFaqs'=> $countFaqs,
             'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
-            'countProducts'=>$countProducts
+            'countProducts'=>$countProducts,
+            'seoData'=>$seoData
         ]);
     }
     public function about (){

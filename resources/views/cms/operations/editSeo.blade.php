@@ -11,6 +11,13 @@
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+      <!-- MDB -->
+      <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+      rel="stylesheet"
+      />
     <!-- Include Compiled JS -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
@@ -96,12 +103,6 @@
             </a>
           </li>
           <li class="">
-            <a href="{{route('seo-page')}}">
-              <i class="fa fa-phone text-white" style="background-color:#2ecc71"></i>
-              <span class="text-white" style="font-size: 18px">SEO Data</span>
-            </a>
-          </li>
-          <li class="">
             <a href="">
             <i class="fa fa-power-off text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Logout</span>
@@ -121,87 +122,62 @@
     <div class="container-fluid">
         <h4 style="color: #3498db">DASHBOARD</h4>
       <hr>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">TOTAL NAVLINKS</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$navlinks}}</span>
-                    </div>
+         <div class="container bg-white p-5">
+            <h2>Update Content</h2><br>
+            <form method="post" action="{{route('update-seo-data')}}" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="id" value="{{$seoData->id}}">
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">SEO Page:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="seo_page" value="{{$seoData->seo_page}}" required>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">PROJECTS</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$projects}}</span>
-                    </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">SEO Title:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="seo_title" value="{{$seoData->seo_title}}" required>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db"> SERVICES CATEGORY</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$serviceCategory}}</span>
-                    </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">SEO Description:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="seo_description" value="{{$seoData->seo_description}}" required>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">SERVICES</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$services}}</span>
-                    </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">SEO Keywords:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="seo_keywords" value="{{$seoData->seo_keywords}}" required>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">TESTIMONIALS</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$testy}}</span>
-                    </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update Content</button>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">FAQ</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$faqs}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-3 w-52">
-                <div class="card rounded-5 p-0 shadow-lg bg-body rounded">
-                    <div class="card-body text-center">
-                       <div class="">
-                        <div class="rounded-5 p-1" style="font-size: 25px;color:white;background-color:#3498db">PRODUCTS</div>
-                      </div><hr>
-                       <span class="" style="font-size: 40px;color:#2ecc71;font-weight:bold;">{{$products}}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </form>
+         </div>
     </div>
 
   </main>
+
   <!-- page-content" -->
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/dashjs.js') }}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <!-- MDB -->
+ <script
+ type="text/javascript"
+ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+ ></script>
+
+ @if (Session::has('message'))
+    <script>
+        swal("Successfully", "{!!Session::get('message')!!}", "success",{
+            button:true,
+            button:'ok',
+            timer:3000,
+            successMode:true
+        });
+    </script>
+@endif
+
 </body>
 </html>

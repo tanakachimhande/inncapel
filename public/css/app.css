@@ -298,6 +298,20 @@ h1 {
         font-size: 13px;
         margin-top: 30px;
     }
+    #mission{
+        width: 100%;
+    }
+}
+
+#mission{
+     width:70%;
+}
+
+@media (max-width:768px){
+
+    #mission{
+        width: 100%;
+    }
 }
 
 /* Light Box */
@@ -309,7 +323,7 @@ h1 {
     position: relative;
 }
 
- 
+
 
 
 

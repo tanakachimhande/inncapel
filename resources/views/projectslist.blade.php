@@ -109,7 +109,7 @@
                                     </h4>
                                 </div>
                                 <div class="card-read-more">
-                                    <a href='{{route('projects-done-page')}}' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
+                                    <a href=' ' type="button" class="btn btn-success btn-lg px-4 me-md-2 btn-block text-white">Click Here & Explore More</a>
                                 </div>
                             </div>
                         </div>

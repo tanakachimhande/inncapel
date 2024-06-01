@@ -5,16 +5,6 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\dashboard;
 use App\Http\Controllers\login;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Website Pages Routes
 
@@ -26,6 +16,14 @@ Route::get('testimonials',[PagesController::class,'testimonials'])->name('testim
 Route::get('faq',[PagesController::class,'faq'])->name('faqpage');
 Route::get('projects-done/{id}',[PagesController::class,'projectsDone'])->name('projects-done-page');
 Route::get('contact',[PagesController::class,'contact'])->name('contactpage');
+
+// SEO Data Routes
+
+Route::get('seopage',[PagesController::class,'seoData'])->name('seo-page');
+Route::post('store-seo-data',[PagesController::class,'storeSeoData'])->name('store-seo-data');
+Route::get('delete-seo-data/{id}',[PagesController::class,'deleteSeoData'])->name('delete-seo-data');
+Route::get('edit-seo-data/{id}',[PagesController::class,'editSeoData'])->name('edit-seo-data');
+Route::post('update-seo-data',[PagesController::class,'updateSeoData'])->name('update-seo-data');
 
 
 // Dashboard Functionalities
@@ -90,24 +88,23 @@ Route::post('update-faq',[PagesController::class,'updateFaq'])->name('update-faq
 
 Route::get('contact-content',[PagesController::class,'contactContent'])->name('contact-content');
 Route::post('store-contact-content',[PagesController::class,'storeContactContent'])->name('store-contact-content');
-Route::get('delete-content/{id}',[PagesController::class,'deleteContact'])->name('delete-contact');
-Route::get('edit-content/{id}',[PagesController::class,'editContact'])->name('edit-contact');
-Route::post('update-content',[PagesController::class,'updateContact'])->name('update-contact');
+Route::get('delete-contact/{id}',[PagesController::class,'deleteContact'])->name('delete-contact');
+Route::get('edit-contact/{id}',[PagesController::class,'editContact'])->name('edit-contact');
+Route::post('update-contact',[PagesController::class,'updateContact'])->name('update-contact');
 
                                 //Services Routes
 
 Route::get('service-category-content',[PagesController::class,'serviceCategoryContent'])->name('service-category-content');
 Route::post('store-service-category-content',[PagesController::class,'storeServiceCategoryContent'])->name('store-service-category-content');
-Route::post('store-subservice',[PagesController::class,'storeServiceContent'])->name('store-subservice');
-Route::get('delete-content/{id}',[PagesController::class,'deleteService'])->name('delete-service');
-Route::get('edit-content/{id}',[PagesController::class,'editService'])->name('edit-service');
-Route::post('update-content',[PagesController::class,'updateService'])->name('update-service');
+Route::get('delete-services/{id}',[PagesController::class,'deleteService'])->name('delete-service');
+Route::get('edit-services/{id}',[PagesController::class,'editService'])->name('edit-service');
+Route::post('update-services',[PagesController::class,'updateService'])->name('update-service');
 
                                // Sub Services Routes
-
-Route::get('delete-contentt/{id}',[PagesController::class,'deleteSubservice'])->name('delete-subservice');
-Route::get('edit-contentt/{id}',[PagesController::class,'editsubService'])->name('edit-subservice');
-Route::post('update-contentt',[PagesController::class,'updatesubService'])->name('update-subservice');
+Route::post('store-subservice',[PagesController::class,'storeServiceContent'])->name('store-subservice');
+Route::get('delete-subservices/{id}',[PagesController::class,'deleteSubservice'])->name('delete-subservice');
+Route::get('edit-subservices/{id}',[PagesController::class,'editsubService'])->name('edit-subservice');
+Route::post('update-subservices',[PagesController::class,'updatesubService'])->name('update-subservice');
 
                                // Projects Routes
 
