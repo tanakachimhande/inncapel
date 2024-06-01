@@ -98,7 +98,7 @@
 
 {{-- Star of slogan section --}}
 
-<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">TESTING<span class="ano1">Small Busineses</span> For  <span class="ano2">Digital Success</span>
+<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Empowering <span class="ano1">Small Busineses</span> For  <span class="ano2">Digital Success</span>
 @if ($error = Session::get('error'))
 <br><span class="text-danger bg-white p-2" id="error">{{$error}}</span>
 @endif
