@@ -112,7 +112,7 @@
                     <h1 class="mb-3 text-center" style="color:#4CAF50;">Some Projects Done</h1><br>
 				</div>
                 <div class="call-toaction">
-                    <a href="#" type="button" class="btn btn-success btn-lg px-4 me-md-2">Get  Our Affordable Services</a><br><br>
+                    <a href="#" type="button" class="btn btn-lg px-4 me-md-2" style="background-color:#FF6F61;color:white;">Get  Our Affordable Services</a><br><br>
                 </div><br><br><br><br>
 			</div>
             <div class="content">

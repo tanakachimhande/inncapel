@@ -107,20 +107,12 @@ class PagesController extends Controller
     }
     public function about (){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
         $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
-        $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
+        $whyusContent = whyus::all();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
-        $countServiceCategory = $serviceCategoryContent->count();
-        $categoriesWithServices = serviceCategory::with('services')->get();
+        $countWhyus = $whyusContent->count();
 
         // SEO Data
 
@@ -128,37 +120,21 @@ class PagesController extends Controller
 
         return view('about',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
             'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
-            'serviceCategoryContent'=>$serviceCategoryContent,
-            'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
-            'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
+            'whyusContent'=>$whyusContent,
+            'countWhyus'=>$countWhyus,
             'seoData'=>$seoData
         ]);
     }
     public function services (){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
         $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
         $countServiceCategory = $serviceCategoryContent->count();
         $categoriesWithServices = serviceCategory::with('services')->get();
 
@@ -168,17 +144,9 @@ class PagesController extends Controller
 
         return view('services',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
             'serviceCategoryContent'=>$serviceCategoryContent,
             'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
             'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
@@ -188,20 +156,12 @@ class PagesController extends Controller
     }
     public function projectsList (){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
         $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
         $countServiceCategory = $serviceCategoryContent->count();
-        $categoriesWithServices = serviceCategory::with('services')->get();
+
 
         // SEO Data
 
@@ -209,17 +169,8 @@ class PagesController extends Controller
 
         return view('projectslist',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
             'serviceCategoryContent'=>$serviceCategoryContent,
-            'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
             'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
@@ -229,20 +180,13 @@ class PagesController extends Controller
     }
     public function testimonials (){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
         $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
-        $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
         $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
-        $countServiceCategory = $serviceCategoryContent->count();
-        $categoriesWithServices = serviceCategory::with('services')->get();
+
+
 
         // SEO Data
 
@@ -250,18 +194,9 @@ class PagesController extends Controller
 
         return view('testimonials',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
             'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
-            'serviceCategoryContent'=>$serviceCategoryContent,
-            'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
             'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
-            'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
             'seoData'=>$seoData
@@ -270,20 +205,12 @@ class PagesController extends Controller
     }
     public function faq (){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
         $faqContent = Faq::all();
         $products = Product::all();
-        $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
         $countFaqs = $faqContent->count();
-        $countServiceCategory = $serviceCategoryContent->count();
-        $categoriesWithServices = serviceCategory::with('services')->get();
+
 
         // SEO Data
 
@@ -291,18 +218,9 @@ class PagesController extends Controller
 
         return view('faq',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
             'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
-            'serviceCategoryContent'=>$serviceCategoryContent,
-            'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
             'countFaqs'=> $countFaqs,
-            'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
             'seoData'=>$seoData
@@ -310,20 +228,11 @@ class PagesController extends Controller
     }
     public function contact (){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
-        $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
-        $countServiceCategory = $serviceCategoryContent->count();
-        $categoriesWithServices = serviceCategory::with('services')->get();
+
+
 
         // SEO Data
 
@@ -331,18 +240,7 @@ class PagesController extends Controller
 
         return view('contact',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
-            'serviceCategoryContent'=>$serviceCategoryContent,
-            'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
-            'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
             'seoData'=>$seoData
@@ -350,18 +248,10 @@ class PagesController extends Controller
     }
     public function projectsDone ($id){
         $navItems = Navbar::all();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
         $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
         $countServiceCategory = $serviceCategoryContent->count();
         $categoriesWithServices = serviceCategory::with('services')->get();
 
@@ -379,19 +269,9 @@ class PagesController extends Controller
             'projects'=>$projects,
             'countProjects'=>$countProjects,
             'categoryName'=>$categoryName,
-            'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
             'serviceCategoryContent'=>$serviceCategoryContent,
             'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
-            'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
             'seoData'=>$seoData
@@ -405,19 +285,10 @@ class PagesController extends Controller
     public function singleProjectDone ($id){
         $navItems = Navbar::all();
         $project = project::where('id', $id)->first();
-        $heroContent = HomeHero::first();
-        $aboutContent = About::first();
-        $whyusContent = whyus::all();
-        $clientTestimonials = Testimonial::all();
-        $faqContent = Faq::all();
         $products = Product::all();
         $serviceCategoryContent = ServiceCategory::all();
         $contactContent = Contact::first();
-        $countWhyus = $whyusContent->count();
         $countProducts = $products->count();
-        $countTestimonials = $clientTestimonials->count();
-        $countFaqs = $faqContent->count();
-        $countServiceCategory = $serviceCategoryContent->count();
         $categoriesWithServices = serviceCategory::with('services')->get();
 
         // SEO Data
@@ -426,17 +297,9 @@ class PagesController extends Controller
 
         return view('projectsSinglePage',[
             'navbarItems'=>$navItems,
-            'heroContent'=>$heroContent,
-            'aboutContent'=>$aboutContent,
-            'clientTestimonials'=>$clientTestimonials,
             'contacts'=>$contactContent,
-            'faqContent'=>$faqContent,
-            'whyusContent'=>$whyusContent,
             'serviceCategoryContent'=>$serviceCategoryContent,
             'categoriesWithServices'=>$categoriesWithServices,
-            'countWhyus'=>$countWhyus,
-            'countTestimonials'=>$clientTestimonials,
-            'countFaqs'=> $countFaqs,
             'countServiceCategory'=>$countServiceCategory,
             'products'=>$products,
             'countProducts'=>$countProducts,
