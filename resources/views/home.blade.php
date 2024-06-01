@@ -163,7 +163,7 @@
                                 <img src="{{asset('images/project-management.png')}}" alt="Captivate Icon">
                             </div>
                             <div>
-                                <h2 class="h4 mb-3 text-white">INNOVATION !</h2>
+                                <h2 class="h4 mb-3 text-white">INNOVATION ! hel</h2>
                                 <p class="lead text-white">
                                     We don't just chase trends, we develop cutting-edge digital solutions that get you real results.
                                 </p>
