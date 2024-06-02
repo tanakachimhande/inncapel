@@ -851,7 +851,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 
 @if (Session::has('message'))
     <script>
-        swal("Successfully", "{!!Session::get('message')!!}", "success",{
+        swal("Thank You !", "{!!Session::get('message')!!}", "success",{
             button:true,
             button:'ok',
             timer:3000,

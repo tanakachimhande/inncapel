@@ -23,6 +23,6 @@ class ContactController extends Controller
         Mail::to('info@inncapel.com')->send(new ContactMail($validatedData));
 
         // Redirect back with a success message
-        return back()->with('message', 'Message sent successfully!');
+        return back()->with('message', 'Message was sent successfully!');
     }
 }
