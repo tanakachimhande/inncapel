@@ -96,7 +96,7 @@
 
 {{-- End of Navbar Section --}}
 
-<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Pioneering <span class="ano1">Digital Success</span> For  <span class="ano2">Small Businesses</span></div><br><br>
+<div class="text-center bg-success w-100 text-white p-2 lead fw-bold" style="position: fixed;z-index:1000;background-color:" id="slogan">Empowering <span class="ano1">Small Businesses</span> For  <span class="ano2">Digital Success</span></div><br><br>
 <div style="position: fixed;width:100%;z-index:1000" id="page-tag">
     <img src="{{asset('images/landscape-3773706_1280.jpg')}}" alt="" style="width:100%;height:8vh;object-fit:cover;z-index:1000;position:relative;">
     <div class="overlay-text">{{$categoryName}}</div>
