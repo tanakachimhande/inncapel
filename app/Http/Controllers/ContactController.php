@@ -3,34 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
-    public function contactMessage(Request $request)
+    public function contactUs (Request $request)
     {
-        // Validate the request data
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
+        // Validate the form data
+        $validatedData = $request->validate([
+            'name' => 'required',
             'phone' => 'required',
             'subject' => 'required',
-            'message' => 'required|string',
+            'email' => 'required|email',
+            'message' => 'required',
         ]);
 
-        // Send the email
-        Mail::send([], [], function ($message) use ($request) {
-            $message->to('info@inncapel.com') // Replace with your email address
-                    ->subject('Contact Form Submission')
-                    ->setBody("
-                        Name: {$request->name}\n
-                        Email: {$request->email}\n
-                        Phone: {$request->phone}\n
-                        Subject: {$request->subject}\n
-                        Message: {$request->message}
-                    ", 'text/plain');
-        });
+        // Send an email
+        Mail::to('info@inncapel.com')->send(new ContactMail($validatedData));
 
         // Redirect back with a success message
-        return back()->with('message', 'Thank you for contacting us. We will get back to you soon.');
+        return back()->with('message', 'Message sent successfully!');
     }
 }

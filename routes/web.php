@@ -19,7 +19,7 @@ Route::get('contact',[PagesController::class,'contact'])->name('contactpage');
 
 // Contact Form
 
-Route::post('contact-message',[ContactController::class,'contactMessage'])->name('contact-message');
+Route::post('contact-message',[ContactController::class,'contactUs'])->name('contact-us');
 
 // SEO Data Routes
 

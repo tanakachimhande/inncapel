@@ -579,7 +579,7 @@
             </div>
             <div class="col-12 col-lg-6">
             <div class="bg-white border rounded shadow-sm overflow-hidden">
-                <form action="{{route('contact-message')}}" method="post">
+                <form action="{{route('contact-us')}}" method="post">
                     @if(session('message'))
                         <div>
                             {{ session('message') }}
