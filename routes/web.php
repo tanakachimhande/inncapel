@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\dashboard;
 use App\Http\Controllers\login;
+use App\Http\Controllers\ContactController;
 
 
 // Website Pages Routes
