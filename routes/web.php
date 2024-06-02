@@ -17,6 +17,10 @@ Route::get('faq',[PagesController::class,'faq'])->name('faqpage');
 Route::get('projects-done/{id}',[PagesController::class,'projectsDone'])->name('projects-done-page');
 Route::get('contact',[PagesController::class,'contact'])->name('contactpage');
 
+// Contact Form
+
+Route::post('contact-message',[ContactController::class,'contactMessage'])->name('contact-message');
+
 // SEO Data Routes
 
 Route::get('seopage',[PagesController::class,'seoData'])->name('seo-page');
@@ -26,12 +30,14 @@ Route::get('edit-seo-data/{id}',[PagesController::class,'editSeoData'])->name('e
 Route::post('update-seo-data',[PagesController::class,'updateSeoData'])->name('update-seo-data');
 
 
-// Dashboard Functionalities
-
 Route::get('admin',[login::class,'login'])->name('login');
 Route::get('dashboard',[dashboard::class,'dashboard'])->name('dashboard');
+Route::get('/logout',[login::class,'logoutUser'])->name('logout-user');
+Route::post('user-login', [login::class, 'authUser'])->name('auth-user');
 
+// Dashboard Functionalities
 
+Route::middleware('auth')->group(function () {
 
                                // Navbar Routes
 
@@ -122,4 +128,4 @@ Route::get('delete-product/{id}',[PagesController::class,'deleteProduct'])->name
 Route::get('edit-product/{id}',[PagesController::class,'editProduct'])->name('edit-product');
 Route::post('update-product',[PagesController::class,'updateProduct'])->name('update-product');
 
-
+});

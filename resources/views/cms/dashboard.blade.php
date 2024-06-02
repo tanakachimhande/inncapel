@@ -102,7 +102,7 @@
             </a>
           </li>
           <li class="">
-            <a href="">
+            <a href="{{route('logout-user')}}">
             <i class="fa fa-power-off text-white" style="background-color:#2ecc71"></i>
               <span class="text-white" style="font-size: 18px">Logout</span>
             </a>

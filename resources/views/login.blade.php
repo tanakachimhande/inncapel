@@ -45,12 +45,9 @@
     rel="stylesheet"
     />
 
-
-
 </head>
 <body style="background:" class="">
     <main>
-
         <section class="w-100 gradient-form" style="background-color: #eee;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -65,25 +62,39 @@
                                 style="width: 185px;" alt="logo">
                             </div>
 
-                            <form>
-                            <p style="color: #FF6F61" class="fw-bold">ADMINISTRATION ACCESS</p>
+                            <form action="{{route('auth-user')}}" method="post">
+                                @csrf
+                                <p style="color: #FF6F61" class="fw-bold">ADMINISTRATION ACCESS</p><br>
+                                @if ($message = Session::get('message'))
+                                <span class="text-center" style="color:red;font-size:18px;font-weight:bold;text-align:center" class="text-center mb-2">{{$message}}</span><br>
+                                @endif
 
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="email" id="form2Example11" class="form-control"
-                                placeholder="Enter username" />
-                                <label class="form-label" for="form2Example11">Username</label>
-                            </div>
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="form2Example11" class="form-control"
+                                    placeholder="Enter username" name="name"/>
+                                    <label class="form-label" for="form2Example11">Username</label>
+                                    <div class="error" style="color: red;">
+                                        @error('name')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
 
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="password" id="form2Example22" class="form-control"   placeholder="Enter password" />
-                                <label class="form-label" for="form2Example22">Password</label>
-                            </div>
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="password" id="form2Example22" class="form-control"   placeholder="Enter password" name="password"/>
+                                    <label class="form-label" for="form2Example22">Password</label>
+                                    <div class="error" style="color: red;">
+                                        @error('password')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
 
-                            <div class="text-center pt-1 mb-5 pb-1">
-                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-block fa-lg mb-3" type="button">Log
-                                in</button>
-                                <a class="text-muted" href="#!">Forgot password?</a>
-                            </div>
+                                <div class="text-center pt-1 mb-5 pb-1">
+                                    <button   class="btn btn-success btn-block fa-lg mb-3" type="Submit">Log
+                                    in</button>
+                                    <a class="text-muted" href="#!">Forgot password?</a>
+                                </div>
 
                             </form>
 
