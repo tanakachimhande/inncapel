@@ -581,11 +581,6 @@
             <div class="bg-white border rounded shadow-sm overflow-hidden">
                 <form action="{{route('contact-us')}}" method="post">
                     @csrf
-                    @if(session('message'))
-                        <div>
-                            {{ session('message') }}
-                        </div>
-                    @endif
                     <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                         <div class="col-12">
                         <label for="fullname" class="form-label text-success">Full Name <span class="text-danger">*</span></label>
@@ -849,5 +844,16 @@ type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
 ></script>
 <script src="{{asset('js/dashboard.js')}}"></script>
+
+@if (Session::has('message'))
+    <script>
+        swal("Successfully", "{!!Session::get('message')!!}", "success",{
+            button:true,
+            button:'ok',
+            timer:3000,
+            successMode:true
+        });
+    </script>
+@endif
 </body>
 </html>
