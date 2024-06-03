@@ -219,15 +219,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label">SEO Title:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="seo_title" required>
+                    <textarea class="form-control" id="message" name="seo_title" rows="4" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label">SEO Description:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="seo_description" required>
+                    <textarea class="form-control" id="message" name="seo_description" rows="4" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label">SEO Keywords:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="seo_keywords" required>
+                    <textarea class="form-control" id="message" name="seo_keywords" rows="3" required></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
