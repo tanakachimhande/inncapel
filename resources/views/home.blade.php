@@ -14,6 +14,16 @@
 
     <meta name="google-site-verification" content="K-8Wldu8vD2XlTCuFDws0mK-Yw9nP0SfQd8U1d8OK40" />
 
+  {{-- Microsoft Clarity Tracking --}}
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "mm7pmur0xt");
+    </script>
+
     <title>{{ $seoData ? $seoData->seo_title : 'Inncapel | Web Development Services' }}</title>
 
 
