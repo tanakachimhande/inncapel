@@ -10,6 +10,10 @@
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="{{ $seoData ? $seoData->seo_keywords : 'Web Design, Web Development, Digital Mareketing and Graphics Design' }}">
 
+    {{-- Google Analytics --}}
+
+    <meta name="google-site-verification" content="K-8Wldu8vD2XlTCuFDws0mK-Yw9nP0SfQd8U1d8OK40" />
+
     <title>{{ $seoData ? $seoData->seo_title : 'Inncapel | Web Development Services' }}</title>
 
 
