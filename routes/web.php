@@ -32,13 +32,14 @@ Route::post('update-seo-data',[PagesController::class,'updateSeoData'])->name('u
 
 
 Route::get('admin',[login::class,'login'])->name('login');
-Route::get('dashboard',[dashboard::class,'dashboard'])->name('dashboard');
 Route::get('/logout',[login::class,'logoutUser'])->name('logout-user');
 Route::post('user-login', [login::class, 'authUser'])->name('auth-user');
 
 // Dashboard Functionalities
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('dashboard',[dashboard::class,'dashboard'])->name('dashboard');
 
                                // Navbar Routes
 
