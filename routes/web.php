@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\dashboard;
-use App\Http\Controllers\login;
+use App\Http\Controllers\Login;
 use App\Http\Controllers\ContactController;
 
 
@@ -31,9 +31,9 @@ Route::get('edit-seo-data/{id}',[PagesController::class,'editSeoData'])->name('e
 Route::post('update-seo-data',[PagesController::class,'updateSeoData'])->name('update-seo-data');
 
 
-Route::get('admin',[login::class,'login'])->name('login');
-Route::get('/logout',[login::class,'logoutUser'])->name('logout-user');
-Route::post('user-login', [login::class, 'authUser'])->name('auth-user');
+Route::get('admin',[Login::class,'login'])->name('login');
+Route::get('/logout',[Login::class,'logoutUser'])->name('logout-user');
+Route::post('user-login', [Login::class, 'authUser'])->name('auth-user');
 
 // Dashboard Functionalities
 
