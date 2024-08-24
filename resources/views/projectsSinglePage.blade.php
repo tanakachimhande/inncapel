@@ -15,7 +15,7 @@
 
     {{-- Favourite Icon --}}
 
-    <link rel="shortcut icon" href="{{asset('images/Inncapel Logo.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('images/logo.jpg')}}" type="image/x-icon">
 
       <!-- Include Compiled CSS -->
 
@@ -77,7 +77,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-brand">
-        <img id="logo-image" src="{{asset('images/Inncapel_Logo-removebg-preview.png')}}" alt="logo">
+        <img id="logo-image" src="{{asset('images/logo.png')}}" alt="logo">
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

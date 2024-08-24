@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
     <title>About Us | Inncapel</title>
-    <link rel="shortcut icon" href="{{asset('images/Inncapel Logo.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('images/logo.png')}}" type="image/x-icon">
       <!-- Include Compiled CSS -->
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -58,7 +58,7 @@
                         <div class="card-body p-md-5 mx-md-4">
 
                             <div class="text-center">
-                            <img src="{{asset('images/Inncapel Logo.jpg')}}"
+                            <img src="{{asset('images/logo.png')}}"
                                 style="width: 185px;" alt="logo">
                             </div>
 

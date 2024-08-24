@@ -29,7 +29,7 @@
 
     {{-- Favourite Icon --}}
 
-    <link rel="shortcut icon" href="{{asset('images/Inncapel Logo.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('images/logo.png')}}" type="image/x-icon">
 
       <!-- Include Compiled CSS -->
 
